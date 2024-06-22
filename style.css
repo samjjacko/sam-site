@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box
+}
+
+@keyframes weight {
+    from {
+        font-weight: 300;
+    }
+    to {
+        font-weight: 700;
+        font-size: large;
+    }
+}
+
+#top-header {
+    box-sizing: content-box;
+    font-family: 'Quicksand';
+    padding: 10px;
+    top: 20px;
+    left: 20px;
+    text-align: left;
+    font-weight: normal;
+    position: relative;
+    padding: 3px;
+}
+
+.zoom:hover {
+    animation-name: weight;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+}
+
+header p {
+    position: relative;
+    left: 23px;
+    top: 40px;
+}
