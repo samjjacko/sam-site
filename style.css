@@ -10,6 +10,8 @@
     --foreground-shade: #181A1F;
     --edge-shade: #252833;
     --main-text: #CDCFDE;
+    --inactive-link: #7174D1;
+    --active-link: #91EDE7;
 }
 
 html {
@@ -17,20 +19,22 @@ html {
     border-top: 30px solid;
     border-bottom: 30px solid;
     border-color: var(--background-shade);
-    background-color: var(--foreground-shade);
+    /* Change this to foreground-shade to reveal the whole document*/
+    background-color: var(--background-shade);
 }
 
 p {
     color: var(--main-text);
 }
-body {
-    background-color: var(--background-shade);
-}
 
-header {
+body {
     padding: 30px;
     border: 2px solid var(--edge-shade);
     border-radius: 40px;
+    background-color: var(--foreground-shade);
+}
+header {
+    z-index: 3;
     background-color: var(--foreground-shade);
     font-family: 'Quicksand';
     text-align: center;
@@ -38,28 +42,66 @@ header {
 }
 
 #top-header {
-    z-index: 2;
+    z-index: 1;
     box-sizing: border-box;
-    position: static;
-    font-size: 40px;
-    width: 90px;
-    color: var(--main-text);
-    background-color: var(--background-shade);
-    border: 3px solid var(--edge-shade);
-    border-radius: 40px;
-    font-weight: 500;
-    z-index: 300;
-}
-header h1 {
-    z-index: 300;
-}
-
-header p {
     position: relative;
+    width: 120px;
+    background-color: var(--background-shade);
+    border-right: 3px solid var(--edge-shade);
+    border-bottom: 3px solid var(--edge-shade);
+    border-radius: 40px;
     padding: 20px;
 }
 
+#top-header h1 {
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--main-text);
+}
 
+header nav {
+    background-color: var(--background-shade);
+    border: 2px solid var(--edge-shade);
+    float: right;
+    padding: 14px 16px;
+    position: relative;
+    bottom: 70px;
+    right: 60px;
+    border-radius: 40px;
+}
+
+nav a{
+    font-family: 'Quicksand';
+    color: var(--inactive-link);
+    font-style: normal;
+    text-decoration: none;
+    padding: 8px;
+}
+
+/* Add image shadow animation*/
+
+#image-container img{
+    /*1576 × 1140 */
+    z-index: 0;
+    position: relative;
+    left: 30px;
+    bottom: 45px;;
+    width: 45%;
+    border: 3px solid var(--edge-shade);
+    border-radius: 40px;
+}
+
+article {
+    border: 3px solid var(--edge-shade);
+    text-align: center;
+    padding: 14px 16px;
+    width: 40%;
+    background-color: var(--background-shade);
+    position: relative;
+    left: 55%;
+    bottom: 270px;
+    border-radius: 40px;
+}
 
 @keyframes weight {
     from {
