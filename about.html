@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>my site</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="top-bar">
+            <div class="nav-container">
+                <div class="nav-bar">
+                    <a href="about.html" id="about">about</a>
+                    <!-- add this back in once the site gets larger -->
+                    <a href="projects.html" id="projects">projects</a>
+                    <a href="other.html" id="other">other</a>
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div id="fancy-grid">
+                <p id="me">I’m Sam J. I’m a second year software engineering student at UWA.</p>
+                <p id="interested">I'm interested in</p>
+                <div class="interactable audio">DSP</div>
+                <p id="xtra-txt-1">and</p>
+                <div class="interactable prob">probability</div>
+            </div>
+        </div>
+        <div class="project-wrapper">
+            
+        </div>
+        <script>
+            const curPage = window.location.pathname;
+            console.log(curPage)
+            const pages = ["/about.html", "/projects.html", "/other.html"]
+            for (i in pages) {
+                let navText = document.getElementById(pages[i].slice(1, -5))
+                if (curPage != pages[i]) {
+                    navText.style.color = '#91ECE6'
+                } else {
+                    navText.style.color = '#D498EE'
+                }
+            }
+        </script>
+    </body>
+</html>

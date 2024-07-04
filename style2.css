@@ -111,6 +111,9 @@ border: rgb(55 57 64) solid 0.8vw; */
     box-sizing: border-box;
     height: 36.137vh;
     width: 93.5vw;
+    display: flex;
+    justify-content: center;
+    padding: 2.604vh;
     background-color: #1A1C21;
     border: rgb(55 57 64) solid 0.8vw;
     border-radius: 13.6986%/16.39344%;
