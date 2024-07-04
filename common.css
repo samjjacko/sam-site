@@ -1,0 +1,31 @@
+/* hides the "projects" section on the nav bar */
+/* @media only screen and (min-width: 768px){
+    #projects {
+        display:block;
+    }
+} */
+ 
+@media (orientation: portrait) and (min-device-width: 485px) {
+    #projects {
+        display:block;
+    }
+}
+
+/* from 386/838 */
+@media (max-aspect-ratio: 5/13) {
+    .main-container {
+        align-items: center;
+    }
+    #fancy-grid {
+        position: relative;
+        font-size: 4.1vw;
+        line-height: 4.7vh;
+        width: auto;
+        /* padding:3vw; */
+    }
+}
+
+/* mobile aspect ratio is 0.4928; 9/16 is 0.5625, so ill aim for like 0.4? */
+
+/* below an aspect ratio value of 0.46062, text should shrink 
+(including line spacing) */

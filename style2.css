@@ -70,11 +70,6 @@ box size is 65
     display:none;
 }
 
-@media only screen and (min-width: 768px){
-    #projects {
-        display:block;
-    }
-}
 .nav-bar{
     background-color: var(--background-shade);
     width: 72.82vw;
