@@ -4,7 +4,7 @@
         <title>my site</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
         <link href="style.css" rel="stylesheet">
         <link href="common.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,10 @@
     <body>
         <div class="top-bar">
             <div class="nav-container">
+                <div id="Hi" class="desktop">Hi</div>
+                <div class="img-container">
+                    <img src="./nerves 1.png" class="desktop" id="avatar">
+                </div>
                 <div class="nav-bar">
                     <a href="about.html" id="about">about</a>
                     <!-- add this back in once the site gets larger -->
@@ -36,10 +40,10 @@
                 <h3>
                     Ascii-based 3d model rendering in terminal
                 </h3>
-                <div class="nav-bar">
+                <!-- <div class="nav-bar">
                     <a href="">github</a>
                     <a href="">website</a>
-                </div>
+                </div> -->
                 <!-- <div class="interactable">
                     <a>Github</a>
                 </div>
@@ -52,6 +56,7 @@
             const curPage = window.location.pathname;
             console.log(curPage)
             const pages = ["/about.html", "/projects.html", "/other.html"]
+            // You can query hrefs and then make a list of files
             for (i in pages) {
                 let navText = document.getElementById(pages[i].slice(1, -5))
                 if (curPage != pages[i]) {

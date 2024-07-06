@@ -57,7 +57,7 @@ box size is 65
     /* 13.69% for X, 83.333% for Y*/
     border-radius: 13.69%/83.333%;
     background-color: #1A1C21;
-    border: rgb(55 57 64) solid 0.8vw;
+    border: rgb(55 57 64) solid 3px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,7 +111,7 @@ border: rgb(55 57 64) solid 0.8vw; */
     height: 36.137vh;
     width: 93.5vw;
     background-color: #1A1C21;
-    border: rgb(55 57 64) solid 0.8vw;
+    border: rgb(55 57 64) solid 3px;
     border-radius: 13.6986%/16.39344%;
     /* padding-top: 5.09478vh; */
     /* padding-bottom: 5.09478vh; */
@@ -187,7 +187,10 @@ border: rgb(55 57 64) solid 0.8vw; */
 }
 
 .project-wrapper {
+    padding-left: 3vw;
+    padding-right:3vw;
     padding-top: 2.54738vh;
+    padding-bottom: 2.54738vh;
     z-index: 2;
     background-position: center;
     background-size:cover;
@@ -195,9 +198,9 @@ border: rgb(55 57 64) solid 0.8vw; */
     height: 36.137vh;
     width: 93.5vw;
     background-color: #1A1C21;
-    border: rgb(55 57 64) solid 0.8vw;
+    border: rgb(55 57 64) solid 3px;
     border-radius: 13.6986%/16.39344%;
-    display: flex;
+    display: grid;
     align-items:start;
 }
 
@@ -220,7 +223,6 @@ border: rgb(55 57 64) solid 0.8vw; */
     grid-column: 2;
 }
 .project-cell h3 {
-    grid-row: 1/1;
     text-decoration: none;
     font-family: 'Roboto Mono';
     font-style: normal;
@@ -232,8 +234,8 @@ border: rgb(55 57 64) solid 0.8vw; */
     /* height: 2.54738vh; */
     /* background-color: #1A1C21; */
     color: white;
-    grid-row: 1 / span 3;
-    position: absolute;
+    grid-row: 1/1;
+    grid-column: 1 / span 2;
 }
 
 .project-cell .nav-bar {
