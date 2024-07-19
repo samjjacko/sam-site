@@ -1,139 +1,18 @@
-/* hides the "projects" section on the nav bar */
-/* @media only screen and (min-width: 768px){
-    #projects {
-        display:block;
-    }
-} */
+
+/* stop the site from swapping to mobile when opened */
+/* on pc */
+/* reposition side bar based on aspect ratio */
 .desktop {
     display: none;
 }
-/* Transition to tablet site */
-@media (orientation: portrait) and (min-aspect-ratio: 3/4) {
-    #projects {
-        display:block;
-    }
-    body {
-        display: grid;
-        padding-left: 1.995vw;
-        align-items: center;
-        grid-template-columns: 35% 2.5% 45% 5% 7.5%;
-    }
-    .desktop {
-        display: flex;
-    }
-    .top-bar {
-        width: 100%;
-        justify-self: center;
-        /* grid-column: 1/span 3; */
-        grid-column: 1/5;
-        grid-row: 1;
-        z-index: 4;
-    }
-    .nav-container {
-        height: 9.069vh;
-        padding-left: 2.076vw;
-        padding-right: 2.076vw;
-        width: 97.41vw;
-        z-index: 6;
-        /* gap: 37.384vw; */
-        justify-content: space-between;
-        border-radius: 2.659%/23.04%;
-    }
-    #Hi {
-        z-index: 7;
-        height: 5.096vh;
-        display: block;
-        max-width: none;
-        width: 15vw;
-        background-color: #373940;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        border-radius: 19.54%/45.8%;
-        border: #2A2D35 solid 7px;
-        text-decoration: none;
-        font-family: 'Roboto Mono';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 3vh;
-        line-height: 7.5829vh;
-        letter-spacing: -0.00641vw;
-    }
-    .img-container {
-        width: 35.196;
-        height:auto;
-        grid-row: 1/2;
-        grid-column: 1;
-        z-index: 5;
-        position: absolute;
-        top: 12vh;
-        background-color: var(--edge-shade);
-        border: solid #2A2D35 0.711vw;
-        border-radius: 15.084%/16.178%;
-    }
-    #avatar {
-        width: 30.358vw;
-        height:auto;
-        border: solid var(--edge-shade) 2.411vw;
-        border-radius: 15.084%/16.178%;
-    }
-    .main-container {
-        justify-self: center;
-        width: 53.02vw;
-        grid-column: 3/5;
-        grid-row: 2/2;
-    }
-    .project-wrapper {
-        grid-row: 3/3;
-    }
+#background-cell {
+    background-color: var(--background-shade);
 }
-
-
-@media (min-aspect-ratio: 8/17) {
-    :root {
-        /* --fixed-container-width: 467.5px; */
-        --fixed-container-width: 376.64px;
-    }
-    .main-container {
-        /* Should I do this like this? or should i somehow grab the current */
-        /* size with javascript? what if the size is huge but the aspect ratio*/
-        /* is this same? */
-        max-width: var(--fixed-container-width);
-        /* max-width: 467.5px; */
-    }
-    #fancy-grid {
-        max-width: 98.35%;
-    }
-    .interactable {
-        /* not sure how to do this - percentages are of the grid cell size */
-        max-width: 144.3px;
-    }
-    .project-wrapper {
-        max-width: var(--fixed-container-width);
-    }
-    .project-cell {
-        max-width: var(--fixed-container-width);
-    }
-    .nav-bar {
-        width: 293.289px;
-    }
-}
-
-/* keep this stuff fixed */
-@media (min-aspect-ratio: 8/17) and (max-aspect-ratio: 3/4) {
-    .nav-container {
-        max-width: var(--fixed-container-width);
-        /* max-width: 497.41px; */
-    }
-    .nav-bar {
-        max-width: 77.87%;
-        /* max-width: 387.39px; */
-    }
-}
-
-/* from 386/838 */
-@media (max-aspect-ratio: 5/13) {
+/* Make note of how youtube scales to match its aspect ratio, and try and copy that */
+/* once at smallest dimensions, as you make the page longer, 
+the content in the main box should stretch */
+/* smaller mobile devices */
+@media (max-width: 392px) {
     .main-container {
         align-items: center;
     }
@@ -146,7 +25,341 @@
     }
 }
 
-/* mobile aspect ratio is 0.4928; 9/16 is 0.5625, so ill aim for like 0.4? */
+/* larger mobile devices - set width in terms of view height instead */
+@media (min-width: 392px) {
+    :root {
+        /* --fixed-container-width: 467.5px; */
+        --fixed-container-width: 43vh;
+    }
+    #fancy-grid {
+        width: 98.35%;
+    }
+    .interactable {
+        /* not sure how to do this - percentages are of the grid cell size */
+        width: 16vh;
+    }
+    .project-wrapper {
+        max-width: var(--fixed-container-width);
+    }
+    .project-cell {
+        max-width: var(--fixed-container-width);
+    }
+    .nav-container {
+        max-width: var(--fixed-container-width);
+    }
+    .top-bar {
+        width: var(--fixed-container-width)
+    }
+    .nav-bar {
+        width: 77.87%;
+    }
+    .main-container {
+        /* Should I do this like this? or should i somehow grab the current */
+        /* size with javascript? what if the size is huge but the aspect ratio*/
+        /* is this same? */
+        max-width: var(--fixed-container-width);
+        /* max-width: 467.5px; */
+    }
+}
 
-/* below an aspect ratio value of 0.46062, text should shrink 
-(including line spacing) */
+
+@media(min-height: 768px) and (min-width: 768px) {
+    * {
+        max-width: none;
+        margin: 0;
+    }
+    #projects {
+        display:block;
+    }
+    body {
+        justify-content: start;
+        overflow: hidden;
+        box-sizing: border-box;
+        /* padding: 2vw; */
+        margin-left: 11px;
+        /* padding-right: 5vw; */
+        /* justify-content: start; */
+        display: grid;
+        height: 100vh;
+        width:100vw;
+        grid-template-rows: 16% 36% 16% 16% 16%;
+        grid-template-columns: repeat(10, 8%);
+        row-gap: 2.5%;
+        padding-left: 0;
+        padding-right:0;
+    }
+    .desktop {
+        display: flex;
+    }
+    .top-bar {
+        max-width: none;
+        width: 100%;
+        grid-column: 1/11;
+        justify-self:center;
+        grid-row: 1;
+        z-index: 4;
+        justify-content: start;
+    }
+    .nav-container {
+        max-width: none;
+        height: 12.069vh;
+        padding-top:10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        grid-column: 1/6;
+        width: 97.41vw;
+        z-index: 6;
+        justify-content: space-between;
+        border-radius: 2.659%/23.04%;
+    }
+    .nav-bar {
+        width: 30vh;
+        max-width: 47.4vw;
+        display: flex;
+    }
+    .nav-bar a {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: clamp(1.77725vh, 1.77725vh, 10px);
+    cursor:grab;
+    }
+    #Hi {
+        z-index: 7;
+        height: 5.096vh;
+        display: block;
+        width: 15vw;
+        background-color: #373940;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border-radius: 19.54%/45.8%;
+        border: #2A2D35 solid 7px;
+        text-decoration: none;
+        font-size: 3vh;
+    }
+    .img-container {
+        box-sizing: border-box;
+        padding:3px;
+        /* width: 280px; */
+        height: auto;
+        /* max-height: 12vh; */
+        /* grid-row: 1/2;
+        grid-column: 1; */
+        z-index: 5;
+        position: absolute;
+        top: 10.5vh;
+        left:55px;
+        background-color: var(--edge-shade);
+        border: solid #2A2D35 3px;
+        border-radius: 15.084%/16.178%;
+    }
+    #avatar {
+        /* width: clamp(calc(220px + 4.822vw), calc(220px + 4.822vw), calc(1vh - 40px)); */
+        width: min(35.6vw, 53.6vh);
+        /* change the viewheight in the calc */
+        max-width: min(40vw, calc((52vh * 0.916) - 95px));
+        /* max-width: 23.6vh; */
+        /* max-width: calc(27vh - 30px); */
+        /* height:fit-content; */
+        /* border: solid var(--edge-shade) clamp(2.411vw, 2.411vw, 1vh);
+        border-radius: 15.084%/16.178%; */
+    }
+    #background-cell {
+        /* grid-area: 2 1 4 9; */
+        box-sizing: border-box;
+        grid-column: 1/11;
+        grid-row: 2/4;
+        background-color: #1A1C21;
+        border: rgb(55 57 64) solid 3px;
+        border-radius: 2.659%/4.23%;
+        width: 97.41vw;
+        z-index: -1;
+        align-self: normal;
+        display: grid;
+        grid-template-rows: 16% 36% 16% 16% 16%;
+        grid-template-columns: repeat(8, 12.5%);
+        padding: 20px;
+        /* grid-template-columns: repeat(10, 8%); */
+    }
+    .temp {
+        display: none;
+    }
+    .main-container {
+        height: 30vh;
+        width: 30vh;
+        min-width: 325px;
+        max-width: 42vw;
+
+        /* max-width: calc(20vw + 20vh); */
+        justify-self:normal;
+        grid-row: 2/2;
+        align-self: center;
+        position: relative;
+        left: calc(min(35.6vw, 53.6vh) + 55px);
+        /* left: calc(7vw + 280px); */
+        background-color: var(--background-shade);
+        border: rgb(55 57 64) solid 3px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #fancy-grid {
+        /* text slides because border is using vw */
+        padding-top:20px;
+        padding-left: 0px;
+        padding-right: 0px;
+        font-size: clamp(1.2vh, 15px, 30vh);
+        line-height: 3vh;
+        text-align: left;
+        height:30vh;
+        width:370px;
+    }
+    .interactable {
+        max-width: 130px;
+        border: #23252C solid 6px;
+    }
+    .audio {
+        grid-column: 4/6;
+        position: relative;
+        left: 5px;
+    }
+    .stuff-container {
+        /* top: min(35.6vw, 53.6vh); */
+        width: 30vh;
+        min-width: 250px;
+        max-width: min(25.4vh, 40vw);
+        /* height: min(8vw, 8vh); */
+        background-color: #2A2D35;
+        /* grid-column: 1/5;
+        grid-row: 3/3; */
+        align-self:flex-end;
+        /* shift it inline with the hi */
+        border-radius: 7.915%/39.21%;
+        position: absolute; 
+        /* need to redo this shit */
+        top: min(calc(10.5vh + 30px + ((min(1.056 * 35.6vw,10.5vh + 340px)))), calc((1.056 * 52vh) + 5px));
+        /* top:calc((min(1.056 * 35.6vw,10.5vh + 340px)) + 160px); */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .stuff {
+        box-sizing: border-box;
+        padding-right: 15px;
+        font-size: clamp(1.1vh, 1.8vw, 1.6vh);
+        display:flex;
+        align-items: center;
+        color: white;
+        justify-content: flex-end;
+        width: 88%;
+        height: 85.6%;
+        background-color: rgb(55, 57, 64);
+        border-radius: 8.9686%/45.8%;
+    }
+    .side-bar {
+        background-color: #2A2D35;
+        height:200px;
+        width: 45px;
+        justify-content: center;
+        align-items: center;
+        gap:15px;
+        display: flex;
+        flex-direction: column;
+        grid-column: 8/9;
+        grid-row: 2/5;
+        align-self: center;
+        border-radius: 44.4%/9.07%;
+        position: relative;
+        left: 30px;
+        justify-self: center;
+    }
+    .side {
+        width:30px;
+        height:30px;
+    }
+    .project-wrapper {
+        grid-row: 3/3;
+        max-width: none;
+    }
+    .project-cell {
+        max-width: none;
+    }
+    .interactable {
+        width: 24vw;
+    }
+}
+/* get app to add borders once an aspect ratio is met */
+/* otherwise, stretch content as vertical increases */
+
+@media(min-aspect-ratio: 9/8) and (min-height: 768px) and (min-width: 768px) {
+    body {
+        grid-template-columns: repeat(10, 1fr);
+        margin-left: 0;
+        column-gap: 2.5%;
+    }
+    .top-bar {
+        display: inline-flex;
+        max-width: 93vh;
+        width:94vh;
+        align-self: center;
+        grid-column: 2/10;
+    }
+    .nav-bar {
+        justify-self: flex-end;
+        grid-column: 6/11;
+        display: inline-flex;
+        box-sizing: content-box;
+        overflow: hidden;
+    }
+    .nav-container {
+        display: grid;
+        grid-template-columns: repeat(8, 12.5%);
+        grid-template-rows: 100%;
+    }
+    #Hi {
+        width:15vh;
+    }
+    .img-container {
+        justify-self: center;
+        grid-column: 2/6;
+        position: relative;
+        left: -12.5vh;
+        top: 20vh;
+    }
+    #avatar {
+        position: relative;
+        grid-column: 2/5;
+    }
+    .main-container {
+        justify-self: center;
+        grid-column: 4/8;
+        left:40px !important;
+    }
+    #background-cell {
+        max-width: 93vh;
+        grid-column: 2/10;
+        justify-self: center;
+    }
+    .edge-bar {
+        display: block;
+        position: absolute;
+        background-color: #1A1C21;
+        min-height: 70vh;
+        z-index: -2;
+        top: 19vh;
+        border-radius: 20.325%/5.763%;
+    }
+    #left {
+        grid-column: 1/2;
+        align-self: flex-start;
+        grid-row: 2/span 3;
+        left:1.5vw;
+    }
+    #right {
+        grid-column: 10/11;
+        align-self: flex-start;
+        grid-row: 2/span 3;
+        right:1.5vw;
+    }
+}

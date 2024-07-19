@@ -16,6 +16,13 @@ bits, and then lastly I'll just have a flexbox thing for projects*/
     font-weight: 400;
     font-style: normal;
 }
+.body-text {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 7.5829vh;
+    letter-spacing: -0.00641vw;
+}
 
 * {
     margin:0;
@@ -32,29 +39,19 @@ body {
     align-items: center;
 }
 
-/* height is 844 on figma
-distance from top to nav is 82
-so about 10% vh
-box size is 65 
- */
 .top-bar {
     box-sizing: border-box;
     height: 16.1137vh;
-    /* border: 5px solid red; */
     background-color: var(--background-shade);
     display: flex;
     align-items:end;
     justify-content: center;
 }
-/* nav container width is 365, total width is 390 so 93.5vw*/
+
 .nav-container {
     box-sizing: border-box;
     height: 7.7vh;
     width: 93.5vw;
-    /* 50 pixels relative to a width of 365 */
-    /* border-radius: 12.8vw; */
-    /* we can define border radius as X/Y radii */
-    /* 13.69% for X, 83.333% for Y*/
     border-radius: 13.69%/83.333%;
     background-color: #1A1C21;
     border: rgb(55 57 64) solid 3px;
@@ -62,10 +59,7 @@ box size is 65
     justify-content: center;
     align-items: center;
 }
-/* font size is 15 high */
-/* bounding box will be 43, so 34.88% for text */
-/* W = 390, H = 844 */
-/* box is 72.82vw, 5.095vh */
+
 #projects {
     display:none;
 }
@@ -79,30 +73,20 @@ box size is 65
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    
     /* 21? or 15? to 43 */
 }
+
 .nav-bar a {
     color: #fff;
     padding-left: 2.5641vw;
     padding-right: 2.5641vw;
     /* text-align: center; */
     text-decoration: none;
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 400;
     font-size: 1.77725vh;
-    line-height: 7.5829vh;
-    letter-spacing: -0.00641vw;
+    cursor:grab;
 }
-/* background-color: #1A1C21;
-border: rgb(55 57 64) solid 0.8vw; */
-/* the height of the top container is 136 */
-/* 136/844 = 16.1137vh */
-/* main {
-    display: flex;
-    flex-direction: column;
-    gap: 2.1327vh;
-} */
+
 .main-container {
     box-sizing: border-box;
     display: flex;
@@ -135,13 +119,9 @@ border: rgb(55 57 64) solid 0.8vw; */
     align-items: center;
 }
 #fancy-grid {
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 400;
     /* text-align: center; */
     font-size: 1.67725vh;
     line-height: 5.829vh;
-    letter-spacing: -0.00641vw;
     color:#fff;
     text-align: center;
     align-content:space-around;
@@ -155,11 +135,6 @@ border: rgb(55 57 64) solid 0.8vw; */
     grid-row: 3;
     grid-column: 1/span 3;
 }
-/* #xtra-txt-2 {
-    grid-row: 3;
-    grid-column: 4;
-    align-items: center;
-} */
 .interactable {
     box-sizing: border-box;
     display: flex;
@@ -223,10 +198,7 @@ border: rgb(55 57 64) solid 0.8vw; */
     grid-column: 2;
 }
 .project-cell h3 {
-    text-decoration: none;
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 400;
+    line-height: 3vh;
     font-size: 1.77725vh;
     letter-spacing: -0.00641vw;
     padding-left: 2.5641vw;
@@ -244,7 +216,3 @@ border: rgb(55 57 64) solid 0.8vw; */
 .project-cell a {
     font-size: 1.47725vh;
 }
-/* middle is 89, so 29.1803% */
-/* bottom is 99, so 32.459%*/
-/* 365 322 */
-/* 43 */

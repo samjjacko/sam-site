@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>my site</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
@@ -10,36 +9,51 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+        <title>my site</title>
     </head>
     <body>
         <div class="top-bar">
             <div class="nav-container">
-                <div id="Hi" class="desktop">Hi</div>
+                <div id="Hi" class="desktop body-text">Hi</div>
                 <div class="img-container">
                     <img src="./nerves 1.png" class="desktop" id="avatar">
                 </div>
                 <div class="nav-bar">
-                    <a href="about.html" id="about">about</a>
-                    <!-- add this back in once the site gets larger -->
-                    <a href="projects.html" id="projects">projects</a>
-                    <a href="other.html" id="other">other</a>
+                    <a href="about.html" id="about" class="body-text">about</a>
+                    <a href="projects.html" id="projects" class="body-text">projects</a>
+                    <a href="other.html" id="other" class="body-text">other</a>
                 </div>
             </div>
         </div>
-        <div class="main-container">
-            <div id="fancy-grid">
-                <p id="me">I’m Sam J. I’m a second year software engineering student at UWA.</p>
-                <p id="interested">I'm interested in</p>
-                <div class="interactable audio">DSP</div>
-                <p id="xtra-txt-1">and</p>
-                <div class="interactable prob">probability</div>
+        <div id="background-cell">
+            <div class="main-container">
+                <div id="fancy-grid" class="body-text">
+                    <p id="me">I’m Sam J. I’m a second year software engineering student at UWA.</p>
+                    <p id="interested">I'm interested in</p>
+                    <!-- Get these interactables to rearrange the cards in the project slider to show relevant ones -->
+                    <!-- also get them to do a cool animation -->
+                    <div class="interactable audio">DSP</div>
+                    <p id="xtra-txt-1">and</p>
+                    <div class="interactable prob">probability</div>
+                </div>
+            </div>
+            <div class="side-bar desktop">
+                <img src="./github.png" class="side">
+                <img src="./linkedin.png" class="side">
+                <img src="./x-logo.avif" class="side">
+                <img src="./bandcamp-logo.svg" class="side">
+            </div>
+            <div class="stuff-container desktop">
+                <div class="stuff body-text">Some stuff I've made</div>
             </div>
         </div>
-        <div class="project-wrapper" style="background-image: url(https://cdn.discordapp.com/attachments/789492343077601320/1258064838744342538/image.png?ex=6687586f&is=668606ef&hm=42ec1d44a642fcf96be8f7ec54de58954168459c2f85c67343f064c3f1e914a0&);">
-            <div class="project-cell">
-                <h3>
+        <canvas class="edge-bar desktop" id="left"></canvas>
+        <canvas class="edge-bar desktop" id="right"></canvas>
+        <div class="project-wrapper temp" style="background-image: url(https://cdn.discordapp.com/attachments/789492343077601320/1258064838744342538/image.png?ex=6687586f&is=668606ef&hm=42ec1d44a642fcf96be8f7ec54de58954168459c2f85c67343f064c3f1e914a0&);">
+            <!-- <div class="project-cell"> -->
+                <!-- <h3 class="body-text">
                     Ascii-based 3d model rendering in terminal
-                </h3>
+                </h3> -->
                 <!-- <div class="nav-bar">
                     <a href="">github</a>
                     <a href="">website</a>
@@ -50,21 +64,10 @@
                 <div class="interactable">
                     <a>Website</a>
                 </div> -->
-            </div>
+            <!-- </div> -->
         </div>
-        <script>
-            const curPage = window.location.pathname;
-            console.log(curPage)
-            const pages = ["/about.html", "/projects.html", "/other.html"]
-            // You can query hrefs and then make a list of files
-            for (i in pages) {
-                let navText = document.getElementById(pages[i].slice(1, -5))
-                if (curPage != pages[i]) {
-                    navText.style.color = '#91ECE6'
-                } else {
-                    navText.style.color = '#D498EE'
-                }
-            }
-        </script>
+        <script src="./script.js"></script>
+        <script src ="./metaballs_L.js"></script>
+        <!-- <script src ="./metaballs_R.js"></script> -->
     </body>
 </html>
