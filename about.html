@@ -43,31 +43,77 @@
                 <img src="./x-logo.avif" class="side">
                 <img src="./bandcamp-logo.svg" class="side">
             </div>
-            <div class="stuff-container desktop">
-                <div class="stuff body-text">Some stuff I've made</div>
-            </div>
         </div>
         <canvas class="edge-bar desktop" id="left"></canvas>
         <canvas class="edge-bar desktop" id="right"></canvas>
-        <div class="project-wrapper temp" style="background-image: url(https://cdn.discordapp.com/attachments/789492343077601320/1258064838744342538/image.png?ex=6687586f&is=668606ef&hm=42ec1d44a642fcf96be8f7ec54de58954168459c2f85c67343f064c3f1e914a0&);">
-            <!-- <div class="project-cell"> -->
-                <!-- <h3 class="body-text">
-                    Ascii-based 3d model rendering in terminal
-                </h3> -->
-                <!-- <div class="nav-bar">
-                    <a href="">github</a>
-                    <a href="">website</a>
-                </div> -->
-                <!-- <div class="interactable">
-                    <a>Github</a>
+        <section id="projects-container">
+            <div class="stuff-container desktop">
+                <div class="stuff body-text">Some stuff I've made</div>
+            </div>
+            <div id="projects-slider">
+                <!-- Do >3 cards you can experiment with wrap around -->
+                <!-- This should work on mobile too; just make the cards taller -->
+                 <!-- style the images to have max widths and heights, and scale them appropriately (i.e. via vh)-->
+                <div class="project-card">
+                    <h1>Max4Live Virtual audio cable</h1>
+                    <!-- <img src="assets/Screenshot 2024-07-19 at 11.53.46 AM.png"> -->
+                    <!-- Could get this to hide text under a dropdown or something if there's too much -->
+                    <p>Attempted to solve the tedium and inconsistencies of virtual audio cables
+                    by writing my own for <a href="https://www.ableton.com/en/live/max-for-live/">Max for Live</a></p>
+                    <h4 class="Uses">Uses:</h4>
+                    <a class="resources" href="https://www.python.org">Python3</a>
+                    <!-- Should i have a link to max here? it doesn't look very professional -->
+                    <a class="resources" href="https://github.com/shakfu/py-js">Py-js M4L externals</a>
+                    <a class="resources" href="https://people.csail.mit.edu/hubert/pyaudio/">PyAudio</a>
+                    <!-- Finish the project and actually put it online -->
+                    <h4 class="find-it">Find it here:</h4>
+                    <a class="personal-site" href="unfinished.html">Site</a>
+                    <a class="ghub-repo" href="unfinished.html">GitHub Repository</a>
                 </div>
-                <div class="interactable">
-                    <a>Website</a>
-                </div> -->
-            <!-- </div> -->
-        </div>
+                <!-- Can I write content to these divs with Javascript? -->
+                <div class="project-card featured-project">
+                    <h1>Game Jam</h1>
+                    <!-- <img src="./assets/character_stand_front_large.png"> -->
+                    <p>A game made with godot and fmod for the July 2024 pirate software game jam</p>
+                    <h4 class="Uses">Uses:</h4>
+                    <a class="resources" href="https://godotengine.org">Godot engine</a>
+                    <a class="resources" href="https://www.fmod.com">FMOD</a>
+                    <!-- Finish the project and actually put it online -->
+                    <h4 class="find-it">Find it here:</h4>
+                    <a class="personal-site" href="unfinished.html">Site</a>
+                    <a class="ghub-repo" href="unfinished.html">GitHub Repository</a>
+                </div>
+                <div class="project-card">
+                    <h1>Surge M4L instrument</h1>
+                    <!-- Maybe replace this image with like a yt video embed (finish the project Sam!) -->
+                    <!-- <img src="./assets/Screenshot 2024-07-19 at 11.59.12 AM.png"> -->
+                    <p>A markov-chain based physical-modelling Max4Live instrument which generates
+                    large cinematic swells and morphs between timbres, depending on shapes drawn by the user.</p>
+                    <h4 class="Uses">Uses:</h4>
+                    <a class="resources" href="https://forum.ircam.fr/projects/detail/modalys/">Ircam forum's Modalys</a>
+                    <!-- Finish the project and actually put it online -->
+                    <h4 class="find-it">Find it here:</h4>
+                    <a class="personal-site" href="unfinished.html">Site</a>
+                    <a class="ghub-repo" href="unfinished.html">GitHub Repository</a>
+                </div>
+                <div class="project-card">
+                    <h1>Coming soon: 3D model rendering in terminal</h1>
+                    <p>Converts screen coordinates into coordinates in a 3d environment, featuring raymarching!</p>
+                    <h4 class="Uses">Uses:</h4>
+                    <a class="resources" href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>
+                    <a class="resources" href="https://invisible-island.net/ncurses/">ncurses</a>
+                </div>
+                <div class="project-card">
+                    <h1>Coming soon: Option pricing with Gaussian random walk</h1>
+                    <p>Converts screen coordinates into coordinates in a 3d environment, featuring raymarching!</p>
+                </div>
+            </div>
+            <b id="toggle-left">prev</b>
+            <b id="toggle-right">next</b>
+        </section>
         <script src="./script.js"></script>
-        <script src ="./metaballs_L.js"></script>
+        <script src="./sliding_cards.js"></script>
+        <!-- <script src ="./metaballs_L.js"></script> -->
         <!-- <script src ="./metaballs_R.js"></script> -->
     </body>
 </html>

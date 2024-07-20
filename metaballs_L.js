@@ -191,5 +191,5 @@ function getIntensity(x, y, circles, strength) {
 }
 
 //fps, sample_res, circ_count, vel_thresh, rad_thresh, strength, debug_bool
-main(30, 60, 10, [2,3], [1, 2], 1, false);
+main(20, 20, 7, [2,3], [1, 3], 1, false);
 // frame(circles, 18);

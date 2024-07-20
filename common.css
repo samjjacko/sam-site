@@ -170,7 +170,7 @@ the content in the main box should stretch */
         /* grid-area: 2 1 4 9; */
         box-sizing: border-box;
         grid-column: 1/11;
-        grid-row: 2/4;
+        grid-row: 2/3;
         background-color: #1A1C21;
         border: rgb(55 57 64) solid 3px;
         border-radius: 2.659%/4.23%;
@@ -194,7 +194,7 @@ the content in the main box should stretch */
 
         /* max-width: calc(20vw + 20vh); */
         justify-self:normal;
-        grid-row: 2/2;
+        grid-row: 2/5;
         align-self: center;
         position: relative;
         left: calc(min(35.6vw, 53.6vh) + 55px);
@@ -225,21 +225,19 @@ the content in the main box should stretch */
         left: 5px;
     }
     .stuff-container {
-        /* top: min(35.6vw, 53.6vh); */
         width: 30vh;
-        min-width: 250px;
+        min-width: 200px;
+        /* height: 40px; */
+        height: 60px;
         max-width: min(25.4vh, 40vw);
-        /* height: min(8vw, 8vh); */
-        background-color: #2A2D35;
-        /* grid-column: 1/5;
-        grid-row: 3/3; */
+        /* background-color: #2A2D35; */
+        background-color: rgb(55 57 64);
         align-self:flex-end;
-        /* shift it inline with the hi */
+        /* border: rgb(55 57 64) solid 3px; */
         border-radius: 7.915%/39.21%;
+        /* from when it was in background-cell: */
         position: absolute; 
-        /* need to redo this shit */
-        top: min(calc(10.5vh + 30px + ((min(1.056 * 35.6vw,10.5vh + 340px)))), calc((1.056 * 52vh) + 5px));
-        /* top:calc((min(1.056 * 35.6vw,10.5vh + 340px)) + 160px); */
+        top: min(calc(10.5vh + 30px + ((min(1.056 * 35.6vw,10.5vh + 340px)))), calc((1.056 * 52vh) - 28px));
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -254,7 +252,8 @@ the content in the main box should stretch */
         justify-content: flex-end;
         width: 88%;
         height: 85.6%;
-        background-color: rgb(55, 57, 64);
+        /* background-color: rgb(55, 57, 64); */
+        background-color: #2A2D35;
         border-radius: 8.9686%/45.8%;
     }
     .side-bar {
@@ -334,7 +333,8 @@ the content in the main box should stretch */
     .main-container {
         justify-self: center;
         grid-column: 4/8;
-        left:40px !important;
+        left:40px;
+        /* left:40px !important; */
     }
     #background-cell {
         max-width: 93vh;
@@ -361,5 +361,75 @@ the content in the main box should stretch */
         align-self: flex-start;
         grid-row: 2/span 3;
         right:1.5vw;
+    }
+    /* Project carousel CSS */
+    #projects-container {
+        box-sizing: border-box;
+        grid-row: 3/5;
+        height: 39.587vh;
+        width: 93vh;
+        grid-column: 2/10;
+        justify-self: center;
+        background-color: #1A1C21;
+        border: rgb(55 57 64) solid 3px;
+        border-radius: 2.659%/4.23%;
+        z-index: -1;
+        align-self: normal;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+    }
+    .stuff-container {
+        align-self: flex-start;
+    }
+    #projects-slider {
+        padding:0%;
+        margin: 0;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        border: rgb(55 57 64) solid 3px;
+        background-color: #23252C;
+        border-radius: 3.6986%/6.39344%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        /* Use js to modify this value */
+        transform: translateX(0);
+    }
+    .project-card {
+        background-color: #2A2D35;
+        flex: 1;
+        height: 34.5vh;
+        display: flex;
+        flex-wrap: wrap;
+        min-width:calc(93vh / 3);
+        transform: translateX(-8%) scale(0.75);
+        /* scale: 0.75; */
+    }
+    .featured-project {
+        transform: translateX(-8%) scale(1);
+        box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%);
+    }
+    /* I'm thinking make a root var containing the amount of right shift */
+    /* Then on button press, update --next, add the animation, then set */
+    /* --prev to --next and remove the animation */
+    @keyframes shiftR {
+        from{transform: translateX(var(--prev));}
+        to {transform: translateX(var(--next));}
+    }
+    b {
+        position: absolute;
+        bottom: 19.7935vh;
+        background-color: #363940;
+        border: rgb(55 57 64) solid 3px;
+        font-size: clamp(1.2vh, 15px, 30vh);
+        color: white;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+    b:last-child {
+        left:unset;
+        align-self: flex-end;
     }
 }
