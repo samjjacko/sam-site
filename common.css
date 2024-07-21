@@ -30,6 +30,8 @@ the content in the main box should stretch */
     :root {
         /* --fixed-container-width: 467.5px; */
         --fixed-container-width: 43vh;
+        --shadow-settings: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%);
+        --bright-settings: 0 16px 24px 2px rgb(255 255 255 / 14%), 0 6px 30px 5px rgb(255 255 255 / 12%), 0 8px 10px -7px rgb(255 255 255 / 20%);
     }
     #fancy-grid {
         width: 98.35%;
@@ -63,7 +65,7 @@ the content in the main box should stretch */
 }
 
 
-@media(min-height: 768px) and (min-width: 768px) {
+@media(min-height: 768px) and (min-width: 768px) { /*Tablet*/
     * {
         max-width: none;
         margin: 0;
@@ -117,6 +119,7 @@ the content in the main box should stretch */
         width: 30vh;
         max-width: 47.4vw;
         display: flex;
+        box-shadow: var(--shadow-settings);
     }
     .nav-bar a {
     padding-left: 0;
@@ -138,6 +141,7 @@ the content in the main box should stretch */
         border: #2A2D35 solid 7px;
         text-decoration: none;
         font-size: 3vh;
+        box-shadow: var(--shadow-settings);
     }
     .img-container {
         box-sizing: border-box;
@@ -241,6 +245,7 @@ the content in the main box should stretch */
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        box-shadow: var(--shadow-settings);
     }
     .stuff {
         box-sizing: border-box;
@@ -272,6 +277,7 @@ the content in the main box should stretch */
         position: relative;
         left: 30px;
         justify-self: center;
+        box-shadow: var(--shadow-settings);
     }
     .side {
         width:30px;
@@ -286,6 +292,153 @@ the content in the main box should stretch */
     }
     .interactable {
         width: 24vw;
+    }
+    #projects-container {
+        box-sizing: border-box;
+        grid-row: 3/5;
+        height: 39.587vh;
+        width: 97.41vw;
+        grid-column: 1/11;
+        background-color: #1A1C21;
+        border: rgb(55 57 64) solid 3px;
+        border-radius: 2.659%/4.23%;
+        z-index: -1;
+        align-self: normal;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+        /* position: relative; */
+        /* right: 10px; */
+    }
+    .stuff-container {
+        align-self: flex-start;
+    }
+    #projects-sub-container {
+        padding:0%;
+        margin: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        /* border: rgb(55 57 64) solid 3px; */
+        background-color: #23252C;
+        border-radius: 3.6986%/6.39344%;
+        justify-self: center;
+        /* Use js to modify this value */
+        width: 95.316%;
+    }
+    #projects-slider {
+        box-sizing: border-box;
+        display: grid;
+        /* grid-template-columns: repeat(2, 25%) calc(100%/3) repeat(2, 25%); */
+        grid-template-columns: repeat(2, 30%) 40% repeat(2, 30%);
+        justify-content: flex-start;
+        align-items:center;
+        column-gap: 0px;
+        transform: translateX(-30%);
+        /* padding-top: 1%;
+        padding-bottom: 1%; */
+        /* max-height: 100%; */
+    }
+    /* Going to set a transition property on each, then just change the translateX of each card */
+    /* Then, once the transition is over, update the new grid column positions */
+    .project-card {
+        margin:0;
+        box-sizing: border-box;
+        background-color: #2A2D35;
+        flex: 1;
+        height: 34.5vh;
+        display: grid;
+        flex-wrap: wrap;
+        min-width:calc(100% / 3);
+        transform: translateY(2.5%) scale(0.8);
+        position: relative;
+        border-radius: 16.329%/15.965%;
+        border: rgb(55 57 64) solid 3px;
+        /* Might need to make this pix */
+        line-height: 3vh;
+        grid-template-columns: repeat(8, 12.5%);
+        grid-template-rows: repeat(4, 25%);
+        padding: 2vh;
+        overflow: hidden;
+        /* scale: 0.75; */
+    }
+    .featured-project {
+        background-color: #363940;
+        transform: scale(1);
+        box-shadow: var(--shadow-settings);
+        border:unset;
+    }
+    .zeroth { /* */
+        grid-column: 0;
+    }
+    .project-card h1 {
+        font-size: clamp(1.2vh, 20px, 30vh);
+        font-weight: 300;
+        grid-column: 1/9;
+        justify-self: center;
+        grid-row: 1/2;
+        color: white;
+        z-index: 1;
+        padding-top:1vh;
+        padding-bottom: 1vh;
+        text-align: center;
+        width: 20vh;
+        max-width: 100%;
+        align-self: flex-start;
+        height: fit-content;
+        background-color: #23252C;
+        border-radius: 15%/55%;
+        box-shadow: var(--shadow-settings);
+    }
+    .project-card img {
+        /* width: 25.875vh; */
+        height: 34.5vh;
+        justify-self: center;
+        align-self: center;
+        grid-column: 1/9;
+        grid-row: 2/5;
+        border-radius: 12%;
+    }
+    /* .project-card a {
+        color: white;
+        width: 120px;
+        font-size: clamp(1.2vh, 15px, 15vh);
+    } */
+    .proj-footer {
+        position: relative;
+        justify-self: center !important;
+        grid-column:1/9 !important;
+        grid-row:4/5 !important;
+        width: 100%;
+        background-color: #23252C;
+        align-self: flex-end;
+        box-shadow: var(--shadow-settings);
+        /* border: rgb(55 57 64) solid 9px; */
+    }
+    .proj-footer a {
+        color: var(--active-link);
+    }
+    .featured-project h1 {
+        font-size: clamp(1.2vh, 25px, 30vh);
+    }
+    /* I'm thinking make a root var containing the amount of right shift */
+    /* Then on button press, update --next, add the animation, then set */
+    /* --prev to --next and remove the animation */
+    b {
+        position: absolute;
+        bottom: 19.7935vh;
+        background-color: #363940;
+        border: rgb(55 57 64) solid 3px;
+        font-size: clamp(1.2vh, 15px, 30vh);
+        color: white;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+    b:last-child {
+        left:unset;
+        align-self: flex-end;
     }
 }
 /* get app to add borders once an aspect ratio is met */
@@ -346,7 +499,7 @@ the content in the main box should stretch */
         position: absolute;
         background-color: #1A1C21;
         min-height: 70vh;
-        z-index: -2;
+        /* z-index: -2; */
         top: 19vh;
         border-radius: 20.325%/5.763%;
     }
@@ -355,81 +508,20 @@ the content in the main box should stretch */
         align-self: flex-start;
         grid-row: 2/span 3;
         left:1.5vw;
+        cursor:grab;
     }
     #right {
         grid-column: 10/11;
         align-self: flex-start;
         grid-row: 2/span 3;
         right:1.5vw;
+        cursor:grab;
+    }
+    #projects-container {
+        max-width: 93vh;
+        left: unset;
+        justify-self: center;
+        left: 3px;
     }
     /* Project carousel CSS */
-    #projects-container {
-        box-sizing: border-box;
-        grid-row: 3/5;
-        height: 39.587vh;
-        width: 93vh;
-        grid-column: 2/10;
-        justify-self: center;
-        background-color: #1A1C21;
-        border: rgb(55 57 64) solid 3px;
-        border-radius: 2.659%/4.23%;
-        z-index: -1;
-        align-self: normal;
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        gap: 10px;
-    }
-    .stuff-container {
-        align-self: flex-start;
-    }
-    #projects-slider {
-        padding:0%;
-        margin: 0;
-        overflow-x: hidden;
-        box-sizing: border-box;
-        border: rgb(55 57 64) solid 3px;
-        background-color: #23252C;
-        border-radius: 3.6986%/6.39344%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        /* Use js to modify this value */
-        transform: translateX(0);
-    }
-    .project-card {
-        background-color: #2A2D35;
-        flex: 1;
-        height: 34.5vh;
-        display: flex;
-        flex-wrap: wrap;
-        min-width:calc(93vh / 3);
-        transform: translateX(-8%) scale(0.75);
-        /* scale: 0.75; */
-    }
-    .featured-project {
-        transform: translateX(-8%) scale(1);
-        box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%);
-    }
-    /* I'm thinking make a root var containing the amount of right shift */
-    /* Then on button press, update --next, add the animation, then set */
-    /* --prev to --next and remove the animation */
-    @keyframes shiftR {
-        from{transform: translateX(var(--prev));}
-        to {transform: translateX(var(--next));}
-    }
-    b {
-        position: absolute;
-        bottom: 19.7935vh;
-        background-color: #363940;
-        border: rgb(55 57 64) solid 3px;
-        font-size: clamp(1.2vh, 15px, 30vh);
-        color: white;
-        padding-top: 7px;
-        padding-bottom: 7px;
-    }
-    b:last-child {
-        left:unset;
-        align-self: flex-end;
-    }
 }

@@ -1,5 +1,5 @@
-document.getElementById("toggle-left").addEventListener("click", shiftLeft);
+// document.getElementById("toggle-left").addEventListener("click", shiftLeft);
 
-function shiftLeft() {
+// function shiftLeft() {
     
-}
+// }
