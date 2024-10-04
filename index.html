@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../src/stylesheets/style.css" rel="stylesheet">
+    <link href="../src/stylesheets/common.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div id="app">
+        <canvas id = "at-the-back" class = "desktop"></canvas>
+      <div class="top-bar">
+        <div class="nav-container">
+            <div id="Hi" class="desktop body-text">Hi</div>
+            <!-- <div class="img-container">
+                <img src="/nerves.png" class="desktop" id="avatar">
+            </div> -->
+            <div class="nav-bar">
+                <a href="../src/html/index.html" id="about" class="body-text">about</a>
+                <a href="../src/html/projects.html" id="projects" class="body-text">projects</a>
+                <a href="../src/html/src/html/other.html" id="other" class="body-text">other</a>
+            </div>
+        </div>
+      </div>
+      <div id="background-cell">
+          <div class="main-container">
+              <div id="fancy-grid" class="body-text">
+                  <p id="me">I’m Sam J. I’m a second year software engineering student at UWA.</p>
+                  <p id="interested">I'm interested in</p>
+                  <!-- Get these interactables to rearrange the cards in the project slider to show relevant ones -->
+                  <!-- also get them to do a cool animation -->
+                  <div class="interactable audio">DSP</div>
+                  <p id="xtra-txt-1">and</p>
+                  <div class="interactable prob">probability</div>
+              </div>
+          </div>
+          <!-- <img class="desktop" id = "pfp" src="/Sketches.png"> -->
+          <div class = "desktop body-text maintext">
+            I’m Sam J. I’m a second year software engineering student at UWA.
+            I'm interested in DSP and some other stuff. 
+            Site in progress!
+          </div>
+          <div class="side-bar desktop">
+            <!-- needs to be replaced with those favicon things -->
+              <img src="/github.png" class="side">
+              <img src="/linkedin.png" class="side">
+              <img src="/x-logo.avif" class="side">
+              <img src="/bandcamp-logo.svg" class="side">
+          </div>
+        <canvas id = "bg-canvas"></canvas>
+      </div>
+      <!-- <canvas class="edge-bar desktop" id="sexycanvas"></canvas>
+      <canvas class="edge-bar desktop" id="right"></canvas> -->
+      <section id="projects-container">
+          <div class="stuff-container desktop">
+              <div class="stuff body-text">Some stuff I've made</div>
+          </div>
+          <!-- <div id="projects-sub-container">
+          </div> -->
+          <div class="project-card body-text">
+            <h1>Option pricing with Gaussian random walk</h1>
+            <!-- <p>Converts screen coordinates into coordinates in a 3d environment, featuring raymarching!</p> -->
+            <div class="nav-bar proj-footer">
+                <a class="personal-site" href="unfinished.html">Site</a>
+                <a class="ghub-repo" href="unfinished.html">GitHub</a>
+            </div>
+        </div>
+        <p>Filler text lorem ipsum</p>
+          <!-- <b id="toggle-left">prev</b>
+          <b id="toggle-right">next</b> -->
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+<!-- Can i get it to ignore extensions like darkmode-ify? do i need to make my html semantic? -->

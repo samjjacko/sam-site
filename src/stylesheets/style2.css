@@ -1,0 +1,197 @@
+/* gonna do header div, main text container will use a grid to align the little text popout
+bits, and then lastly I'll just have a flexbox thing for projects*/
+/* program it with the intention of making adding new projects as streamlined as possible */
+:root {
+    --background-shade: #2A2D35;
+    --foreground-shade: #1A1C21;
+    --medium-shade: rgb(55 57 64);
+    --edge-shade: #252833;
+    --main-text: #CDCFDE;
+    --inactive-link: #7174D1;
+    --active-link: #91EDE7;
+}
+.roboto-mono {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin:0;
+    padding: 0;
+}
+html {
+    /* Change this to foreground-shade to reveal the whole document*/
+    background-color: var(--background-shade);
+}
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 2.1327vh;
+    align-items: center;
+}
+
+/* height is 844 on figma
+distance from top to nav is 82
+so about 10% vh
+box size is 65 
+ */
+.top-bar {
+    box-sizing: border-box;
+    height: 16.1137vh;
+    /* border: 5px solid red; */
+    background-color: var(--background-shade);
+    display: flex;
+    align-items:end;
+    justify-content: center;
+}
+/* nav container width is 365, total width is 390 so 93.5vw*/
+.nav-container {
+    box-sizing: border-box;
+    height: 7.7vh;
+    width: 93.5vw;
+    /* 50 pixels relative to a width of 365 */
+    /* border-radius: 12.8vw; */
+    /* we can define border radius as X/Y radii */
+    /* 13.69% for X, 83.333% for Y*/
+    border-radius: 13.69%/83.333%;
+    background-color: #1A1C21;
+    border: rgb(55 57 64) solid 0.8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* font size is 15 high */
+/* bounding box will be 43, so 34.88% for text */
+/* W = 390, H = 844 */
+/* box is 72.82vw, 5.095vh */
+#projects {
+    display:none;
+}
+
+.nav-bar{
+    background-color: var(--background-shade);
+    width: 72.82vw;
+    height: 5.096vh;
+    border-radius: 21.3523%/139.53%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* 21? or 15? to 43 */
+}
+.nav-bar a {
+    color: #fff;
+    padding-left: 2.5641vw;
+    padding-right: 2.5641vw;
+    /* text-align: center; */
+    text-decoration: none;
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.77725vh;
+    line-height: 7.5829vh;
+    letter-spacing: -0.00641vw;
+}
+/* background-color: #1A1C21;
+border: rgb(55 57 64) solid 0.8vw; */
+/* the height of the top container is 136 */
+/* 136/844 = 16.1137vh */
+/* main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.1327vh;
+} */
+.main-container {
+    box-sizing: border-box;
+    height: 36.137vh;
+    width: 93.5vw;
+    display: flex;
+    justify-content: center;
+    padding: 2.604vh;
+    background-color: #1A1C21;
+    border: rgb(55 57 64) solid 0.8vw;
+    border-radius: 13.6986%/16.39344%;
+    /* padding-top: 5.09478vh; */
+    /* padding-bottom: 5.09478vh; */
+    /* display:flex;
+    justify-content: center; */
+}
+/* First lines of text are 74 high */
+/* 43 pixels of padding on top and bottom, so 5.09478vh top and bottom*/
+#fancy-grid {
+    padding-top: 2.54738vh;
+    padding-bottom: 2.54738vh;
+    box-sizing: border-box;
+    display: grid;
+    height: 36.137vh;
+    width: 93.5vw;
+    grid-template-columns: 20% 20% 15% 25% 20%;
+    grid-template-rows: 25% 15% 25% 25%;
+    /* border: 14px red solid; */
+    align-items: center;
+}
+#fancy-grid {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    /* text-align: center; */
+    font-size: 1.77725vh;
+    line-height: 5.829vh;
+    letter-spacing: -0.00641vw;
+    color:#fff;
+    text-align: center;
+    /* justify-content: space-evenly; */
+}
+#me {
+    grid-column: 1/span 5;
+    grid-row: 1/span 2;
+}
+#interested {
+    grid-row: 3;
+    grid-column: 1/span 3;
+}
+/* #xtra-txt-2 {
+    grid-row: 3;
+    grid-column: 4;
+    align-items: center;
+} */
+.interactable {
+    box-sizing: border-box;
+    display: flex;
+    width: 37vw;
+    height: 7.6568vh;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(55 57 64);
+    border: var(--background-shade) solid 3.1vw;
+    border-radius: 34.4827%/88.23529%;
+}
+
+.audio {
+    grid-row: 3;
+    grid-column: 4/span 3;
+}
+#xtra-txt-1 {
+    align-items: center;
+    grid-row: 4;
+    grid-column: 0/span 3;
+}
+.prob {
+    grid-row: 4;
+    grid-column: 2;
+}
+
+.project-wrapper {
+    box-sizing: border-box;
+    height: 36.137vh;
+    width: 93.5vw;
+    background-color: #1A1C21;
+    border: rgb(55 57 64) solid 0.8vw;
+    border-radius: 13.6986%/16.39344%;
+}
+
+/* middle is 89, so 29.1803% */
+/* bottom is 99, so 32.459%*/
+/* 365 322 */
+/* 43 */

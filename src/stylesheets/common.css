@@ -1,0 +1,601 @@
+
+/* stop the site from swapping to mobile when opened */
+/* on pc */
+/* reposition side bar based on aspect ratio */
+.desktop {
+    display: none;
+}
+#background-cell {
+    background-color: var(--background-shade);
+}
+/* Make note of how youtube scales to match its aspect ratio, and try and copy that */
+/* once at smallest dimensions, as you make the page longer, 
+the content in the main box should stretch */
+/* smaller mobile devices */
+@media (max-width: 392px) {
+    .main-container {
+        align-items: center;
+    }
+    #fancy-grid {
+        position: relative;
+        font-size: 4.1vw;
+        line-height: 4.7vh;
+        width: auto;
+        /* padding:3vw; */
+    }
+}
+
+/* larger mobile devices - set width in terms of view height instead */
+@media (min-width: 392px) {
+    :root {
+        /* --fixed-container-width: 467.5px; */
+        --fixed-container-width: 43vh;
+        --shadow-settings: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%);
+        --bright-settings: 0 16px 24px 2px rgb(255 255 255 / 14%), 0 6px 30px 5px rgb(255 255 255 / 12%), 0 8px 10px -7px rgb(255 255 255 / 20%);
+    }
+    #fancy-grid {
+        width: 98.35%;
+    }
+    .interactable {
+        /* not sure how to do this - percentages are of the grid cell size */
+        width: 16vh;
+    }
+    .project-wrapper {
+        max-width: var(--fixed-container-width);
+    }
+    .project-cell {
+        max-width: var(--fixed-container-width);
+    }
+    .nav-container {
+        max-width: var(--fixed-container-width);
+    }
+    .top-bar {
+        width: var(--fixed-container-width)
+    }
+    .nav-bar {
+        width: 77.87%;
+    }
+    .main-container {
+        /* Should I do this like this? or should i somehow grab the current */
+        /* size with javascript? what if the size is huge but the aspect ratio*/
+        /* is this same? */
+        max-width: var(--fixed-container-width);
+        /* max-width: 467.5px; */
+    }
+}
+
+
+@media(min-height: 768px) and (min-width: 768px) { /*Tablet*/
+    * {
+        max-width: none;
+        margin: 0;
+    }
+    #projects {
+        display:block;
+    }
+    #app {
+        justify-content: start;
+        overflow: hidden;
+        box-sizing: border-box;
+        /* padding: 2vw; */
+        margin-left: 11px;
+        /* padding-right: 5vw; */
+        /* justify-content: start; */
+        display: grid;
+        height: 100vh;
+        width:100vw;
+        grid-template-rows: 16% 36% 16% 16% 16%;
+        grid-template-columns: repeat(10, 8%);
+        row-gap: 2.5%;
+        padding-left: 0;
+        padding-right:0;
+    }
+    .desktop {
+        display: flex;
+    }
+    .top-bar {
+        max-width: none;
+        width: 100%;
+        grid-column: 1/11;
+        justify-self:center;
+        grid-row: 1;
+        z-index: 4;
+        justify-content: start;
+    }
+    .nav-container {
+        max-width: none;
+        height: 12.069vh;
+        padding-top:10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        grid-column: 1/6;
+        width: 97.41vw;
+        z-index: 6;
+        justify-content: space-between;
+        border-radius: 2.659%/23.04%;
+    }
+    .nav-bar {
+        width: 30vh;
+        max-width: 47.4vw;
+        display: flex;
+        box-shadow: var(--shadow-settings);
+    }
+    .nav-bar a {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: clamp(1.77725vh, 1.77725vh, 10px);
+    cursor:grab;
+    }
+    #Hi {
+        z-index: 7;
+        height: 5.096vh;
+        display: block;
+        width: 15vw;
+        background-color: #373940;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border-radius: 19.54%/45.8%;
+        border: #2A2D35 solid 7px;
+        text-decoration: none;
+        font-size: 3vh;
+        box-shadow: var(--shadow-settings);
+    }
+    .img-container {
+        box-sizing: border-box;
+        padding:3px;
+        /* width: 280px; */
+        height: auto;
+        /* max-height: 12vh; */
+        /* grid-row: 1/2;
+        grid-column: 1; */
+        z-index: 5;
+        position: absolute;
+        top: 10.5vh;
+        left:55px;
+        background-color: var(--edge-shade);
+        border: solid #2A2D35 3px;
+        border-radius: 15.084%/16.178%;
+    }
+    #avatar {
+        /* width: clamp(calc(220px + 4.822vw), calc(220px + 4.822vw), calc(1vh - 40px)); */
+        width: min(35.6vw, 53.6vh);
+        /* change the viewheight in the calc */
+        max-width: min(40vw, calc((52vh * 0.916) - 95px));
+        border-radius: 15%;
+    }
+    #background-cell {
+        /* grid-area: 2 1 4 9; */
+        box-sizing: border-box;
+        grid-column: 1/11;
+        grid-row: 2/3;
+        background-color: #18191d;
+        border: rgb(55 57 64) solid 3px;
+        border-radius: 2.659%/4.23%;
+        width: 97.41vw;
+        z-index: -1;
+        align-self: normal;
+        display: grid;
+        grid-template-rows: 16% 36% 16% 16% 16%;
+        grid-template-columns: repeat(8, 12.5%);
+        padding: 20px;
+        /* grid-template-columns: repeat(10, 8%); */
+    }
+    .temp {
+        display: none;
+    }
+    .main-container {
+        height: 30vh;
+        width: 30vh;
+        min-width: 325px;
+        max-width: 42vw;
+
+        /* max-width: calc(20vw + 20vh); */
+        justify-self:normal;
+        grid-row: 2/5;
+        align-self: center;
+        position: relative;
+        left: calc(min(35.6vw, 53.6vh) + 55px);
+        /* left: calc(7vw + 280px); */
+        background-color: var(--background-shade);
+        border: rgb(55 57 64) solid 3px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #fancy-grid {
+        /* text slides because border is using vw */
+        padding-top:20px;
+        padding-left: 0px;
+        padding-right: 0px;
+        font-size: clamp(1.2vh, 15px, 30vh);
+        line-height: 3vh;
+        text-align: left;
+        height:30vh;
+        width:370px;
+    }
+    .interactable {
+        max-width: 130px;
+        border: #23252C solid 6px;
+    }
+    .audio {
+        grid-column: 4/6;
+        position: relative;
+        left: 5px;
+    }
+    .stuff-container {
+        width: 30vh;
+        min-width: 200px;
+        /* height: 40px; */
+        height: 60px;
+        max-width: min(25.4vh, 40vw);
+        /* background-color: #2A2D35; */
+        background-color: rgb(55 57 64);
+        align-self:flex-end;
+        /* border: rgb(55 57 64) solid 3px; */
+        border-radius: 7.915%/39.21%;
+        /* from when it was in background-cell: */
+        position: absolute; 
+        top: min(calc(10.5vh + 30px + ((min(1.056 * 35.6vw,10.5vh + 340px)))), calc((1.056 * 52vh) - 28px));
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        box-shadow: var(--shadow-settings);
+    }
+    .stuff {
+        box-sizing: border-box;
+        padding-right: 15px;
+        font-size: clamp(1.1vh, 1.8vw, 1.6vh);
+        display:flex;
+        align-items: center;
+        color: white;
+        justify-content: flex-end;
+        width: 88%;
+        height: 85.6%;
+        /* background-color: rgb(55, 57, 64); */
+        background-color: #2A2D35;
+        border-radius: 8.9686%/45.8%;
+    }
+    .side-bar {
+        background-color: #2A2D35;
+        height:200px;
+        width: 45px;
+        justify-content: center;
+        align-items: center;
+        gap:15px;
+        display: flex;
+        flex-direction: column;
+        grid-column: 8/9;
+        grid-row: 2/5;
+        align-self: center;
+        border-radius: 44.4%/9.07%;
+        position: relative;
+        left: 30px;
+        justify-self: center;
+        box-shadow: var(--shadow-settings);
+    }
+    .side {
+        width:30px;
+        height:30px;
+    }
+    .project-wrapper {
+        grid-row: 3/3;
+        max-width: none;
+    }
+    .project-cell {
+        max-width: none;
+    }
+    .interactable {
+        width: 24vw;
+    }
+    #projects-container {
+        box-sizing: border-box;
+        grid-row: 3/5;
+        height: 39.587vh;
+        width: 97.41vw;
+        grid-column: 1/11;
+        background-color: #1A1C21;
+        border: rgb(55 57 64) solid 3px;
+        border-radius: 2.659%/4.23%;
+        z-index: -1;
+        align-self: normal;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+        /* position: relative; */
+        /* right: 10px; */
+    }
+    .stuff-container {
+        align-self: flex-start;
+    }
+    #projects-sub-container {
+        padding:0%;
+        margin: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        /* border: rgb(55 57 64) solid 3px; */
+        background-color: #23252C;
+        border-radius: 3.6986%/6.39344%;
+        justify-self: center;
+        /* Use js to modify this value */
+        width: 95.316%;
+    }
+    #projects-slider {
+        box-sizing: border-box;
+        display: grid;
+        /* grid-template-columns: repeat(2, 25%) calc(100%/3) repeat(2, 25%); */
+        grid-template-columns: repeat(2, 30%) 40% repeat(2, 30%);
+        justify-content: flex-start;
+        align-items:center;
+        column-gap: 0px;
+        transform: translateX(-30%);
+        /* padding-top: 1%;
+        padding-bottom: 1%; */
+        /* max-height: 100%; */
+    }
+
+    .project-card {
+        margin:0;
+        box-sizing: border-box;
+        background-color: #2A2D35;
+        flex: 1;
+        height: 34.5vh;
+        display: grid;
+        flex-wrap: wrap;
+        min-width:calc(100% / 3);
+        transform: translateY(2.5%) scale(0.8);
+        position: relative;
+        border-radius: 16.329%/15.965%;
+        border: rgb(55 57 64) solid 3px;
+        /* Might need to make this pix */
+        line-height: 3vh;
+        grid-template-columns: repeat(8, 12.5%);
+        grid-template-rows: repeat(4, 25%);
+        padding: 2vh;
+        overflow: hidden;
+        /* scale: 0.75; */
+    }
+    .project-card h1 {
+        font-size: clamp(1.2vh, 20px, 30vh);
+        font-weight: 300;
+        grid-column: 1/9;
+        justify-self: center;
+        grid-row: 1/2;
+        color: white;
+        z-index: 1;
+        padding-top:1vh;
+        padding-bottom: 1vh;
+        text-align: center;
+        width: 20vh;
+        max-width: 100%;
+        align-self: flex-start;
+        height: fit-content;
+        background-color: #23252C;
+        border-radius: 15%/55%;
+        box-shadow: var(--shadow-settings);
+    }
+    .project-card img {
+        /* width: 25.875vh; */
+        height: 34.5vh;
+        justify-self: center;
+        align-self: center;
+        grid-column: 1/9;
+        grid-row: 2/5;
+        border-radius: 12%;
+    }
+    .projects   -container p {
+        position: relative;
+        grid-column: 1/9;
+        grid-row: 2/4;
+        display: block;
+        color: white;
+        align-self: center;
+        justify-content: center;
+        background-color: (55, 57, 64);
+    }
+    .proj-footer {
+        position: relative;
+        justify-self: center !important;
+        grid-column:1/9 !important;
+        grid-row:4/5 !important;
+        width: 100%;
+        background-color: #23252C;
+        align-self: flex-end;
+        box-shadow: var(--shadow-settings);
+        /* border: rgb(55 57 64) solid 9px; */
+    }
+    .proj-footer a {
+        color: var(--active-link);
+    }
+    .featured-project h1 {
+        font-size: clamp(1.2vh, 25px, 30vh);
+    }
+    /* I'm thinking make a root var containing the amount of right shift */
+    /* Then on button press, update --next, add the animation, then set */
+    /* --prev to --next and remove the animation */
+    b {
+        position: absolute;
+        bottom: 19.7935vh;
+        background-color: #363940;
+        border: rgb(55 57 64) solid 3px;
+        font-size: clamp(1.2vh, 15px, 30vh);
+        color: white;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+    b:last-child {
+        left:unset;
+        align-self: flex-end;
+    }
+    .maintext {
+        display: none;
+    }
+}
+/* get app to add borders once an aspect ratio is met */
+/* otherwise, stretch content as vertical increases */
+
+@media(min-aspect-ratio: 9/8) and (min-height: 768px) and (min-width: 768px) {
+    #app {
+        grid-template-columns: repeat(10, 1fr);
+        margin-left: 0;
+        column-gap: 2.5%;
+    }
+    #at-the-back{
+        width: 100vw;
+        height: 100%;
+        z-index: -1;
+        position: absolute;
+    }
+    .top-bar {
+        display: inline-flex;
+        /* max-width: 93vh; */
+        justify-content: center;
+        width:80vw;
+        max-width: 1200px;
+        align-self: center;
+        grid-column: 1/11;
+    }
+    .nav-bar {
+        background-color: #2A2D35;
+        justify-self: flex-end;
+        grid-column: 6/11;
+        display: inline-flex;
+        box-sizing: content-box;
+        overflow: hidden;
+    }
+    .nav-container {
+        background-color: #18191d;
+        display: grid;
+        grid-template-columns: repeat(8, 12.5%);
+        grid-template-rows: 100%;
+        box-shadow: var(--shadow-settings);
+    }
+    #Hi {
+        width:15vh;
+    }
+    .img-container {
+        justify-self: center;
+        grid-column: 2/6;
+        position: relative;
+        left: -12.5vh;
+        top: 20vh;
+    }
+    #avatar {
+        position: relative;
+        grid-column: 2/5;
+    }
+    .main-container {
+        background-color: #363940;
+        justify-self: center;
+        grid-column: 2/8;
+        left:20%;
+        border: unset;
+        width: 70%;
+        /* left:40px !important; */
+        display: none;
+    }
+    #background-cell {
+        background-color: #18191d;
+        /* max-width: 93vh; */
+        padding:unset;
+        width:80vw;
+        max-width: 1200px;
+        grid-column: 1/11;
+        justify-self: center;
+        overflow:hidden;
+        box-shadow: var(--shadow-settings);
+    }
+    #bg-canvas {
+        position: relative;
+        grid-column: 1/9;
+        grid-row: 1/6;
+        width: 100%;
+        height: 100%;
+        border-radius: 2.659%/4.23%;
+        z-index: -1;
+        opacity: 100%;
+        /* background-color: white; */
+    }
+    .maintext {
+        grid-column: 1/5;
+        position: relative;
+        left: 20px;
+        padding: 20px;
+        border-radius: 10%/15%;
+        grid-row: 2/5;
+        background-color: rgb(54, 57, 64);
+        display: flex;
+        line-height: 1vh;
+        flex-direction: column;
+        justify-content: space-evenly;
+        color: white;
+        font-size: 15px;
+        line-height: 3.5;
+        border: solid 8px rgb(42, 45, 53);
+        box-shadow: var(--shadow-settings);
+    }
+    #pfp-container {
+        grid-column: 1/3;
+        grid-row: 1/6;
+        z-index: 2;
+        align-self: center;
+        align-content: center;
+        justify-content: center;
+        height: 80%;
+        background-color: var(--foreground-shade);
+    }
+    #pfp {
+        grid-column: 1/4;
+        grid-row: 1/6;
+        align-self: center;
+        justify-self: center;
+        z-index: 2;
+        height: 80%;
+        border-radius: 15%;
+        box-shadow: var(--background-shade);
+    }
+    .desktop .body-text {
+        line-height: 3;
+    }
+    .main-container {
+        font-size: clamp(1.2vh, 15px, 30vh);
+        line-height: 3vh;
+        text-align: left;
+    }
+    .edge-bar {
+        display: block;
+        position: absolute;
+        background-color: #1A1C21;
+        min-height: 70vh;
+        /* z-index: -2; */
+        top: 19vh;
+        border-radius: 20.325%/5.763%;
+    }
+    #left {
+        grid-column: 1/2;
+        align-self: flex-start;
+        grid-row: 2/span 3;
+        left:1.5vw;
+        cursor:grab;
+    }
+    #right {
+        grid-column: 10/11;
+        align-self: flex-start;
+        grid-row: 2/span 3;
+        right:1.5vw;
+        cursor:grab;
+    }
+    #projects-container {
+        left: unset;
+        justify-self: center;
+        width:80vw;
+        max-width: 1200px;
+        grid-column: 1/11;
+        box-shadow: var(--shadow-settings);
+    }
+    /* Project carousel CSS */
+}
