@@ -1,4 +1,3 @@
-
 /* stop the site from swapping to mobile when opened */
 /* on pc */
 /* reposition side bar based on aspect ratio */
@@ -7,21 +6,136 @@
 }
 #background-cell {
     background-color: var(--background-shade);
+    border-radius: 13.659%/10.23%;
+    height:35vh;
+}
+#projects-container {
+    box-sizing: border-box;
+    grid-row: 3/5;
+    height: 60vh;
+    width: 97.41vw;
+    grid-column: 1/11;
+    background-color: #1A1C21;
+    border: rgb(55 57 64) solid 3px;
+    border-radius: 2.659%/4.23%;
+    z-index: -1;
+    align-self: normal;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 /* Make note of how youtube scales to match its aspect ratio, and try and copy that */
 /* once at smallest dimensions, as you make the page longer, 
 the content in the main box should stretch */
 /* smaller mobile devices */
-@media (max-width: 392px) {
+.nav-container {
+    background-color: #18191d;
+}
+@media (max-width: 428px) {
     .main-container {
         align-items: center;
+        width: 85vw;
+        margin: 0 auto;
+        padding: 2vh;
     }
     #fancy-grid {
         position: relative;
-        font-size: 4.1vw;
-        line-height: 4.7vh;
-        width: auto;
-        /* padding:3vw; */
+        font-size: clamp(1.2vh, 4.1vw, 2.5vh);
+        line-height: 1.5;
+        width: 100%;
+        padding: 1vh;
+    }
+    #projects-container {
+        width: 85vw;
+        margin: 0 auto;
+        border: rgb(55 57 64) solid 3px;
+        border-radius: 20.659%/14.23%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 2vh;
+        height: 70vh;
+    }
+    .project-card {
+        margin: 0;
+        box-sizing: border-box;
+        background-color: #2A2D35;
+        width: 100%;
+        height: auto;
+        min-height: 34.5vh;
+        display: grid;
+        grid-template-columns: repeat(8, 12.5%);
+        grid-template-rows: repeat(4, 25%);
+        transform: translateY(2.5%) scale(0.95);
+        position: relative;
+        border-radius: 16.329%/15.965%;
+        border: rgb(55 57 64) solid 3px;
+        line-height: 1.5;
+        padding: 2vh;
+        overflow: hidden;
+    }
+    .project-card h1 {
+        font-size: clamp(1.2vh, 4.1vw, 2.5vh);
+        font-weight: 300;
+        grid-column: 1/9;
+        justify-self: center;
+        grid-row: 1/2;
+        color: white;
+        z-index: 1;
+        padding: 1vh;
+        text-align: center;
+        max-width: 100%;
+        align-self: flex-start;
+        height: fit-content;
+        background-color: #23252C;
+        border-radius: 15%/55%;
+        box-shadow: var(--shadow-settings);
+    }
+    .project-card p {
+        font-size: 1.3vh !important;
+    }
+    .proj-footer {
+        position: relative;
+        justify-self: center;
+        grid-column: 1/9;
+        grid-row: 4/5;
+        width: 100%;
+        background-color: #23252C;
+        align-self: flex-end;
+        box-shadow: var(--shadow-settings);
+        padding: 1vh;
+    }
+    .proj-footer a {
+        color: var(--active-link);
+        font-size: clamp(1.2vh, 3.5vw, 2vh);
+    }
+    #f_icon_util {
+        grid-column: 1/9;
+        grid-row: 2/4;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .interactable {
+        width: 40vw;
+        height: 7vh;
+        font-size: clamp(1.2vh, 3.5vw, 2vh);
+        margin: 1vh 0;
+    }
+    .nav-bar {
+        width: 100%;
+        /* height: auto; */
+        padding: 1vh 0;
+    }
+    .nav-bar a {
+        font-size: clamp(1.2vh, 3.5vw, 2vh);
+        padding: 1vh;
     }
 }
 
@@ -227,21 +341,18 @@ the content in the main box should stretch */
     .stuff-container {
         width: 30vh;
         min-width: 200px;
-        /* height: 40px; */
         height: 60px;
         max-width: min(25.4vh, 40vw);
-        /* background-color: #2A2D35; */
         background-color: rgb(55 57 64);
-        align-self:flex-end;
-        /* border: rgb(55 57 64) solid 3px; */
-        border-radius: 7.915%/39.21%;
-        /* from when it was in background-cell: */
-        position: absolute; 
+        position: absolute;
+        left: 25%;
+        transform: translateX(-50%);
         top: min(calc(10.5vh + 30px + ((min(1.056 * 35.6vw,10.5vh + 340px)))), calc((1.056 * 52vh) - 28px));
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
         box-shadow: var(--shadow-settings);
+        border-radius: 7.915%/39.21%;
     }
     .stuff {
         box-sizing: border-box;
@@ -292,7 +403,7 @@ the content in the main box should stretch */
     #projects-container {
         box-sizing: border-box;
         grid-row: 3/5;
-        height: 39.587vh;
+        height: 60vh;
         width: 97.41vw;
         grid-column: 1/11;
         background-color: #1A1C21;
@@ -301,13 +412,13 @@ the content in the main box should stretch */
         z-index: -1;
         align-self: normal;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: flex-start;
-        flex-direction: column;
+        flex-direction: row;
         padding: 20px;
-        gap: 10px;
-        /* position: relative; */
-        /* right: 10px; */
+        gap: 20px;
+        overflow-x: auto;
+        overflow-y: hidden;
     }
     .stuff-container {
         align-self: flex-start;
@@ -339,40 +450,51 @@ the content in the main box should stretch */
     }
 
     .project-card {
-        margin:0;
+        margin: 0;
         box-sizing: border-box;
         background-color: #2A2D35;
-        flex: 1;
-        height: 34.5vh;
+        width: calc(100% / 3 - 20px);
+        min-width: 250px;
+        max-width: 350px;
+        height: auto;
+        min-height: 40vh;
         display: grid;
-        flex-wrap: wrap;
-        min-width:calc(100% / 3);
-        transform: translateY(2.5%) scale(0.8);
+        grid-template-columns: repeat(8, 12.5%);
+        grid-template-rows: auto auto 1fr auto;
+        transform: translateY(2.5%) scale(0.95);
         position: relative;
         border-radius: 16.329%/15.965%;
         border: rgb(55 57 64) solid 3px;
-        /* Might need to make this pix */
-        line-height: 3vh;
-        grid-template-columns: repeat(8, 12.5%);
-        grid-template-rows: repeat(4, 25%);
-        padding: 2vh;
-        overflow: hidden;
-        /* scale: 0.75; */
+        line-height: 1.5;
+        padding: 1.5vh;
+        overflow: visible;
+        flex-shrink: 0;
+    }
+    .project-card p {
+        grid-column: 1/9;
+        grid-row: 3;
+        margin: 0;
+        padding: 0.8vh;
+        font-size: clamp(0.9vh, 2.5vw, 1.6vh);
+        line-height: 1.4;
+        color: white;
+        display: block;
+        text-align: center;
     }
     .project-card h1 {
-        font-size: clamp(1.2vh, 20px, 30vh);
+        font-size: clamp(1vh, 18px, 25vh);
         font-weight: 300;
         grid-column: 1/9;
         justify-self: center;
         grid-row: 1/2;
         color: white;
         z-index: 1;
-        padding-top:1vh;
-        padding-bottom: 1vh;
+        padding-top: 0.8vh;
+        padding-bottom: 0.8vh;
         text-align: center;
-        width: 20vh;
+        width: 18vh;
         max-width: 100%;
-        align-self: flex-start;
+        align-self: center;
         height: fit-content;
         background-color: #23252C;
         border-radius: 15%/55%;
@@ -410,6 +532,14 @@ the content in the main box should stretch */
     }
     .proj-footer a {
         color: var(--active-link);
+        cursor:grab;
+    }
+    .proj-footer {
+        pointer-events: auto;
+    }
+    
+    .proj-footer a {
+        pointer-events: auto;
     }
     .featured-project h1 {
         font-size: clamp(1.2vh, 25px, 30vh);
@@ -598,4 +728,76 @@ the content in the main box should stretch */
         box-shadow: var(--shadow-settings);
     }
     /* Project carousel CSS */
+    .project-card {
+        width: calc(100% / 3 - 20px);
+        min-width: 300px;
+        max-width: 400px;
+        height: auto;
+    }
+}
+
+.project-card {
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #2A2D35;
+    width: 100%;
+    height: auto;
+    min-height: 34.5vh;
+    display: grid;
+    grid-template-columns: repeat(8, 12.5%);
+    grid-template-rows: auto auto 1fr auto;
+    transform: translateY(2.5%) scale(0.95);
+    position: relative;
+    border-radius: 16.329%/15.965%;
+    border: rgb(55 57 64) solid 3px;
+    line-height: 1.5;
+    padding: 2vh;
+    overflow: visible;
+}
+.project-card p {
+    grid-column: 1/9;
+    grid-row: 3;
+    margin: 0;
+    padding: 1vh;
+    font-size: clamp(0.9vh, 2.5vw, 1.6vh);
+    line-height: 1.4;
+    color: white;
+    display: block;
+    text-align: center;
+}
+.project-card h1 {
+    font-size: clamp(1vh, 18px, 25vh);
+    font-weight: 300;
+    grid-column: 1/9;
+    grid-row: 1;
+    color: white;
+    z-index: 1;
+    padding: 1vh;
+    text-align: center;
+    max-width: 100%;
+    align-self: center;
+    height: fit-content;
+    background-color: #23252C;
+    border-radius: 15%/55%;
+    box-shadow: var(--shadow-settings);
+}
+.proj-footer {
+    position: relative;
+    justify-self: center;
+    grid-column: 1/9;
+    grid-row: 4;
+    width: 100%;
+    background-color: #23252C;
+    align-self: flex-end;
+    box-shadow: var(--shadow-settings);
+    padding: 1vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 2.1327vh;
+    align-items: center;
+    overflow-y: auto;
+    min-height: 100vh;
 }

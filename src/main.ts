@@ -3,7 +3,7 @@ import { MbConfig } from './metaballs_oop.ts'
 
 // The weird side offset has to do with how many squares you calculate in metaballs_oop
 let config: MbConfig = { // change this if you'd like!
-  sample_res: 30000, // number of squares to sample from the area
+  sample_res: 50000, // number of squares to sample from the area
   circ_count: 18, // number of circles
   // upper and lower bounds for randomised velocity
   vel_lo: 1,
@@ -17,12 +17,10 @@ let config: MbConfig = { // change this if you'd like!
 
 var anim1 = new MetaballAnimation('bg-canvas', config);
 // var anim2 = new MetaballAnimation('sexycanvas2', config);
-anim1.canvas.addEventListener("click", toggleAnimation() !);
+anim1.canvas.addEventListener("click", toggleAnimation);
 
 var toggle = false;
 var stopId = 0;
-
-anim1.canvas.addEventListener("click", toggleAnimation);
 
 function toggleAnimation() {
   if(toggle == false) {
@@ -87,7 +85,7 @@ function handleResize() {
   // Throttle the rest of the resize logic
   clearTimeout(resizeTimeout);
   resizeTimeout = window.setTimeout(() => {
-      const smallMobile = window.matchMedia("(max-width: 392px)");
+      const smallMobile = window.matchMedia("(max-width: 392px) and (max-aspect-ratio: 1/2)");
       const largeMobile = window.matchMedia("(min-width: 392px) and (max-width: 768px)");
       const tablet = window.matchMedia("(min-width: 768px) and (max-width: 1024px)");
 
