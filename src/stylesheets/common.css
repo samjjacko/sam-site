@@ -533,7 +533,7 @@ the content in the main box should stretch */
         flex-direction: column;
         justify-content: space-evenly;
         color: white;
-        font-size: 15px;
+        font-size: 13px;
         line-height: 3.5;
         border: solid 8px rgb(42, 45, 53);
         box-shadow: var(--shadow-settings);
