@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <link href="common.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops!</title>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="nav-container">
+            <div id="Hi" class="desktop body-text">Oops! 404</div>
+            <div class="nav-bar">
+                <a href="index.html" id="about" class="body-text">about</a>
+                <a href="projects.html" id="projects" class="body-text">projects</a>
+                <a href="other.html" id="other" class="body-text">other</a>
+            </div>
+        </div>
+    </div>
+    <div id="background-cell">
+        <div class="main-container">
+            <div class="body-text">
+                <p>This page doesn't exist yet... Come back and check again soon!</p>
+                <p>If it makes you feel any better, press the button to see a cool animation :]</p>
+                <button class="interactable" id="render-metaballs">Render animation?</button>
+            </div>
+        </div>
+        <!-- Contains metaball animation -->
+        <div id="left"></div> 
+        <div class="side-bar desktop">
+            <img src="./github.png" class="side">
+            <img src="./linkedin.png" class="side">
+            <img src="./x-logo.avif" class="side">
+            <img src="./bandcamp-logo.svg" class="side">
+        </div>
+    </div>
+    <p></p>
+    <style>
+        .main-container {
+            grid-column: 1/8;
+            min-width: 63vh; 
+            line-height: 2px;
+        }
+    </style>
+    <!-- borrow the css styling and script from main -->
+</body>
+</html>
