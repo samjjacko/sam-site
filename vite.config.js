@@ -10,5 +10,5 @@ export default {
             }
         }
     },
-    base: "/turn-my-swag-on.github.io/",
+    base: "/turn-my-swag-on.github.io",
 }
