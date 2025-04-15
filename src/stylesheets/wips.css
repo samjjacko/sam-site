@@ -1,0 +1,9 @@
+@media(min-aspect-ratio: 9/8) and (min-height: 768px) and (min-width: 768px) {
+    #background-cell {
+        height: 80vh;
+        max-height: unset;
+    }
+    .maintext {
+        justify-self: flex-start;
+    }
+}

@@ -15,6 +15,14 @@ let config: MbConfig = { // change this if you'd like!
   debug: false, 
 }; 
 
+if(window.location.href.endsWith("wips.html")) {
+  config.sample_res = 100000;
+  config.vel_hi = 3;
+  config.vel_lo = 2;
+  config.circ_count = 22;
+  config.strength = 2;
+}
+
 var anim1 = new MetaballAnimation('bg-canvas', config);
 // var anim2 = new MetaballAnimation('sexycanvas2', config);
 anim1.canvas.addEventListener("click", toggleAnimation);
@@ -110,5 +118,17 @@ function handleResize() {
       anim1.sample_dim = Math.floor(anim1.canvas.width * anim1.canvas.height / anim1.sample_res);
   }, 200); // Throttle resize events
 }
-  
+// const itch_footer = document.getElementById('game_jam_footer');
+// // doesn't matter, still not clickable
+// const f_icon_footer = document.getElementById("f_icon_footer");
+// if(itch_footer != null) {
+//   itch_footer.addEventListener("click", (e) => {
+//     window.location.href = "https://snoodlegames.itch.io/fathomless";
+//   });
+// }
+// if(f_icon_footer != null) {
+//   f_icon_footer.addEventListener("click", (e) => {
+//     window.location.href = "https://github.com/turn-my-swag-on/file-icon-utility";
+//   });
+// }
 handleResize(); // start the animation and don't bother if on smaller viewport

@@ -1,7 +1,7 @@
 /* gonna do header div, main text container will use a grid to align the little text popout
 bits, and then lastly I'll just have a flexbox thing for projects*/
 /* program it with the intention of making adding new projects as streamlined as possible */
-:root {
+/* :root {
     --background-shade: #2A2D35;
     --foreground-shade: #1A1C21;
     --medium-shade: rgb(55 57 64);
@@ -9,7 +9,7 @@ bits, and then lastly I'll just have a flexbox thing for projects*/
     --main-text: #CDCFDE;
     --inactive-link: #7174D1;
     --active-link: #91EDE7;
-}
+} */
 .roboto-mono {
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
