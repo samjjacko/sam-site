@@ -131,4 +131,14 @@ function handleResize() {
 //     window.location.href = "https://github.com/turn-my-swag-on/file-icon-utility";
 //   });
 // }
+
+const sidebar_icons = document.querySelectorAll(".side-bar > img");
+if(sidebar_icons) {
+  sidebar_icons.forEach(element => {
+    element.addEventListener("click", () => {
+      const link = element.getAttribute("href")
+      if(link != null) window.location.href = link;
+    })
+  });
+}
 handleResize(); // start the animation and don't bother if on smaller viewport
