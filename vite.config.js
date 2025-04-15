@@ -10,5 +10,5 @@ export default {
             }
         }
     },
-    base: "/sam-site",
+    base: "/sam-site/",
 }
