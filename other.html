@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/src/stylesheets/style.css" rel="stylesheet">
     <link href="/src/stylesheets/common.css" rel="stylesheet">
-    <link href="/src/stylesheets/wips.css" rel="stylesheet">
+    <link href="/src/stylesheets/other.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
@@ -24,53 +24,66 @@
                 <img src="/nerves.png" class="desktop" id="avatar">
             </div> -->
             <div class="nav-bar">
-                <a href="/sam-site/index.html" id="about" class="body-text">about</a>
-                <a href="/sam-site/src/html/wips.html" id="wips" class="body-text">wips</a>
-                <a href="/sam-site/src/html/other.html" id="other" class="body-text">other</a>
+              <a href="index.html" id="about" class="body-text">about</a>
+              <a href="wips.html" id="wips" class="body-text">wips</a>
+              <a href="other.html" id="other" class="body-text">other</a>
             </div>
         </div>
       </div>
       <div id="background-cell">
           <div class="main-container">
               <div id="fancy-grid" class="body-text">
-                  <p id="me">
-                    I'm currently working on lots of things!
-                    Namely, a markdown web renderer in nextjs, a wavetable synth which interpolates between several wavetable frames in a two-dimensional plane, and an audio safety tool/dosimeter for macos. Stay tuned!
-                  </p>
+                  <p id="me">I'm also really interested in music, and have been writing electronic music for about eight years now! Recreationally, I program in maxmsp, and am learning the c++ plugin framework juce.</p>
               </div>
           </div>
           <!-- <img class="desktop" id = "pfp" src="/Sketches.png"> -->
           <div class = "desktop body-text maintext">
-            I'm currently working on lots of things!
-            Namely, a markdown web renderer in nextjs, a wavetable synth which interpolates between several wavetable frames in a two-dimensional plane, and an audio safety tool/dosimeter for macos. Stay tuned!
+            I'm also really interested in music, and have been writing electronic music for about eight years now! Recreationally, I program in maxmsp, and am learning the c++ plugin framework juce.
           </div>
           <div class="side-bar desktop">
             <!-- needs to be replaced with those favicon things -->
             <img href="https://github.com/turn-my-swag-on" src="/github.png" class="side">
             <img href="https://www.linkedin.com/in/samuel-jackson-2b16b5359/" src="/linkedin.png" class="side">
           </div>
-        <canvas id = "bg-canvas"></canvas>
+            <canvas id = "bg-canvas"></canvas>
       </div>
       <!-- <canvas class="edge-bar desktop" id="sexycanvas"></canvas>
       <canvas class="edge-bar desktop" id="right"></canvas> -->
-      <!-- <section id="projects-container">
-          <div class="stuff-container desktop">
+      <section id="projects-container">
+          <!-- <div class="stuff-container desktop">
               <div class="stuff body-text">Some stuff I've made</div>
-          </div>
+          </div> -->
+          <!-- <div id="projects-sub-container">
+          </div> -->
           <div class="project-card body-text">
-            <h1>File Icon Utility</h1>
-            <p> I'm working on a cross-platform wxWidgets application, for setting folder/file icons. I've learnt about pointer-to-implementation and interoperability between c/c++, as well as properly using makefiles and cmake.</p>
-            <div class="nav-bar proj-footer">
+            <h1>Surge M4L device</h1>
+            <p>A physical modelling instrument which uses Ircam's "modalys" to generate instrumental swells with several generated instruments.</p>
+            <!-- <p>Converts screen coordinates into coordinates in a 3d environment, featuring raymarching!</p> -->
+            <img src="/public/Screenshot 2024-07-19 at 11.59.12 AM.png">
+            <!-- <div class="nav-bar proj-footer">
                 <a id="ghub-repo" href="https://github.com/turn-my-swag-on/file-icon-utility">GitHub</a>
-            </div>
+            </div> -->
         </div>
-        <div class="project-card body-text">
-          <h1>Fathomless GameJam</h1>
-          <p> I competed in (and won!) the game jam "Mini Jam 174:Defense" with a team of three. We used Godot/GDScript to make a horror game; I programmed menus, the character's movement, sound events, and some other stuff. </p>
+        <!-- <div class="project-card body-text">
+          <h1>Some music :)</h1>
+          <h1 id="randomise_music">Randomise</h1>
+            <div class="players">
+                <div class="nav-bar music-player">
+                    <audio href="https://cdn.discordapp.com/attachments/1191730753373995078/1334432237680070656/finish_music.mp3?ex=67feba1e&is=67fd689e&hm=2d0bcbdf31fdbe951aa5ffb4beec10e427c5819620eaa4f622bb737e9daae9df&" type="audio/mpeg"></audio>
+                </div>
+                <div class="nav-bar music-player">
+                    <audio></audio>
+                </div>
+                <div class="nav-bar music-player">
+                    <audio></audio>
+                </div>
+            </div>
           <div class="nav-bar proj-footer">
               <a id="itch" href="https://snoodlegames.itch.io/fathomless">Itch.io</a>
-          </div>
-      </section> -->
+          </div> -->
+          <!-- <b id="toggle-left">prev</b>
+          <b id="toggle-right">next</b> -->
+      </section>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

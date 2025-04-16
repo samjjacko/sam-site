@@ -5,10 +5,10 @@ export default {
         rollupOptions: {
             input: {
                 main: resolve(__dirname, "index.html"),
-                wips: resolve(__dirname, "src/html/wips.html"),
-                other: resolve(__dirname, "src/html/other.html"),
+                wips: resolve(__dirname, "wips.html"),
+                other: resolve(__dirname, "other.html"),
             }
         }
     },
-    base: "/",
+    base: "/sam-site",
 }
