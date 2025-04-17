@@ -4,15 +4,14 @@ import { MbConfig } from './metaballs_oop.ts'
 // The weird side offset has to do with how many squares you calculate in metaballs_oop
 let config: MbConfig = { // change this if you'd like!
   sample_res: 50000, // number of squares to sample from the area
-  circ_count: 18, // number of circles
+  circ_count: 10, // number of circles
   // upper and lower bounds for randomised velocity
-  vel_lo: 1,
-  vel_hi: 2,
+  vel_lo: 2,
+  vel_hi: 3,
   // upper and lower bounds for radius size generation
   rad_lo: 1,
   rad_hi: 1,
-  strength: 1.6, //intensity modifier - 1 is fine
-  debug: false, 
+  strength: 2, //intensity modifier - 1 is fine
 }; 
 
 if(window.location.href.endsWith("wips.html")) {
@@ -23,7 +22,7 @@ if(window.location.href.endsWith("wips.html")) {
   config.strength = 2;
 }
 
-var anim1 = new MetaballAnimation('bg-canvas', config);
+var anim1 = new MetaballAnimation('bg-canvas', config); 
 // var anim2 = new MetaballAnimation('sexycanvas2', config);
 anim1.canvas.addEventListener("click", toggleAnimation);
 
@@ -41,24 +40,9 @@ function toggleAnimation() {
   }
 }
 
-// let lastFrameTime = 0;
-// const targetFPS = 40;
-// const frameInterval = 1000 / targetFPS; // in ms 
-
-// function frame(): void {
-//   const now = performance.now();
-//   const delta = now - lastFrameTime;
-
-//   if (delta >= frameInterval) {
-//       lastFrameTime = now;
-//       frameInst(anim1); 
-//   }
-
-//   stopId = window.requestAnimationFrame(frame);
-// }
-
 function frame (): void {
   if(toggle) {
+    console.log("frame inst anim1, anim1's sample_res:" + anim1.sample_res);
     frameInst(anim1);
     // frameInst(anim2);
     // frameInst(anim2);
@@ -71,9 +55,6 @@ function frameInst(anim_instance:MetaballAnimation): void {
   anim_instance.ctx.clearRect(0, 0, anim_instance.canvas.width, anim_instance.canvas.height); 
   // anim_instance.ctx.strokeStyle = "rgb(31, 33, 43)";
   anim_instance.paintSamplesBetter();
-  if (anim_instance.debug_bool == true) {
-      anim_instance.createDebuggingNet(anim_instance.sample_res); // should be at the top?
-  }
   // calculate and update the positions of each circle
   for (let circ1 of anim_instance.circles) {
     // console.log(circ1);
@@ -81,64 +62,70 @@ function frameInst(anim_instance:MetaballAnimation): void {
   }
 }
 
-window.addEventListener("resize", handleResize);
-let resizeTimeout: number;
+let lastWidth = window.innerWidth;
+let lastHeight = window.innerHeight;
+
+// check if it's a mobile device
+function isMobileDevice() {
+  // check for touch support
+  const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  
+  // Check user agent for mobile devices
+  const userAgent = navigator.userAgent.toLowerCase();
+  const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+  if (hasTouch) console.log("has touch");
+  if (isMobile) console.log("is mobile");
+  const mobile_dims = (window.innerWidth / window.innerHeight) < (9/8);
+  const size_reqs = (window.innerWidth < 768 || window.innerHeight < 768);
+  // check if dimensions are the same as those checked by media queries
+  return (hasTouch && isMobile) || mobile_dims && size_reqs;
+}
 
 function handleResize() {
-  // Stop the animation immediately
-  if (toggle) {
-      toggleAnimation(); // This stops the animation
+  console.log("resize");
+  // Only proceed if there's a significant size change
+  const currentWidth = window.innerWidth;
+  const currentHeight = window.innerHeight;
+  const widthDiff = Math.abs(currentWidth - lastWidth);
+  const heightDiff = Math.abs(currentHeight - lastHeight);
+  
+  // Ignore small changes that might be caused by mobile browser UI
+  if (widthDiff < 50 && heightDiff < 50) {
+    return;
   }
+  
+  lastWidth = currentWidth;
+  lastHeight = currentHeight;
 
-  // Throttle the rest of the resize logic
-  clearTimeout(resizeTimeout);
-  resizeTimeout = window.setTimeout(() => {
-      const smallMobile = window.matchMedia("(max-width: 392px) and (max-aspect-ratio: 1/2)");
-      const largeMobile = window.matchMedia("(min-width: 392px) and (max-width: 768px)");
-      const tablet = window.matchMedia("(min-width: 768px) and (max-width: 1024px)");
-
-      if (smallMobile.matches || largeMobile.matches || tablet.matches) {
-          // Ensure the animation remains stopped
-          if (toggle) {
-              toggleAnimation(); // Ensure it's stopped
-          }
-      } else {
-          // Restart the animation if needed
-          if (!toggle) {
-              toggleAnimation();
-          }
+    if (isMobileDevice()) {
+      // Ensure the animation remains stopped on mobile
+      if (toggle) { // will never be true if isMobileDevice returns true consistently
+        console.log("Disabling animation");
+        toggleAnimation();
       }
+    } else {
+      // Start the animation if needed on desktop
+      if (!toggle) {
+        console.log("animation start")
+        toggleAnimation(); 
+      }
+    }
 
-      // Update canvas dimensions
-      const rect = anim1.canvas.getBoundingClientRect();
-      anim1.canvas.width = rect.width;
-      anim1.canvas.height = rect.height;
+    // Update canvas dimensions
+    // const rect = anim1.canvas.getBoundingClientRect();
+    // anim1.canvas.width = rect.width;
+    // anim1.canvas.height = rect.height;
 
-      // Recalculate sample dimensions
-      anim1.sample_dim = Math.floor(anim1.canvas.width * anim1.canvas.height / anim1.sample_res);
-  }, 200); // Throttle resize events
+    // // Recalculate sample dimensions
+    // anim1.sample_dim = Math.floor(anim1.canvas.width * anim1.canvas.height / anim1.sample_res);
+  
 }
-// const itch_footer = document.getElementById('game_jam_footer');
-// // doesn't matter, still not clickable
-// const f_icon_footer = document.getElementById("f_icon_footer");
-// if(itch_footer != null) {
-//   itch_footer.addEventListener("click", (e) => {
-//     window.location.href = "https://snoodlegames.itch.io/fathomless";
-//   });
-// }
-// if(f_icon_footer != null) {
-//   f_icon_footer.addEventListener("click", (e) => {
-//     window.location.href = "https://github.com/turn-my-swag-on/file-icon-utility";
-//   });
-// }
 
-const sidebar_icons = document.querySelectorAll(".side-bar > img");
-if(sidebar_icons) {
-  sidebar_icons.forEach(element => {
-    element.addEventListener("click", () => {
-      const link = element.getAttribute("href")
-      if(link != null) window.location.href = link;
-    })
-  });
+if (!isMobileDevice()) {
+  // console.log("Initial animation start");
+  window.addEventListener("resize", handleResize);
+  console.log("Not mobile device, sample res: " + anim1.sample_res);
+  toggleAnimation(); // start the animation
+} else {
+  console.log("phone spotted");
 }
-handleResize(); // start the animation and don't bother if on smaller viewport

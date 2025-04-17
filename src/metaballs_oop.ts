@@ -9,7 +9,6 @@ export type MbConfig = {
     rad_lo: number;
     rad_hi: number;
     strength: number; //intensity modifier - 1 is fine
-    debug: boolean;
 };
 
 export type Circ = {
@@ -53,7 +52,6 @@ export class MetaballAnimation {
     stopId: number = 0; //frame for stopping the animation - 0 for now
     sample_res: number;
     strength: number;
-    debug_bool: boolean;
     hue_rotation: number;
     sin_hue: number;
     sample_dim: number;
@@ -72,7 +70,6 @@ export class MetaballAnimation {
         // constructs the 'canvas' field depending on id passed to class
         this.canvas = document.getElementById(html_id) as HTMLCanvasElement;
         const rect = this.canvas.getBoundingClientRect();
-        // might need to add a window listener to update these as we rescale - YES!
         this.canvas.width = rect.width;
         this.canvas.height = rect.height;
         this.ctx = this.canvas.getContext('2d') !; // should never be null, now that we've set our canvas size
@@ -81,9 +78,10 @@ export class MetaballAnimation {
         // setup meaningful field variables
         this.sample_res = mb.sample_res;
         // the height/width of a given sample to be drawn to the canvas
+        // something is shrinking the canvas height
         this.sample_dim = Math.floor(this.canvas.width * this.canvas.height / this.sample_res);
+        // if (this.sample_dim < 1) this.sample_dim = 1; // avoids insane 
         this.strength = mb.strength;
-        this.debug_bool = mb.debug;
         this.circles = this.generateCircles(mb);
         // here 90.5 and 81.1 are the saturation values for the starting colours 
         // maybe add the starting position to mbConfig
@@ -133,14 +131,11 @@ export class MetaballAnimation {
             this.hue_rotation += Math.PI/16;
             this.sin_hue = Math.sin(this.hue_rotation) * 0.1;
         }
-        // if (this.frame_count % 60 === 0) { // Adjust every 60 frames
-        //     this.adjustSampleResolution();
-        // }
-        this.hslCache.length = 0; // clear existing cache
-        for (let x = 0; x < this.canvas.width; x += this.sample_dim) {
-            const hsl_vals = [0, 0, 0]; // Create a new array
-            this.calcHSL(x, hsl_vals);
-            this.hslCache.push(hsl_vals);
+
+        const count = Math.ceil(this.canvas.width / this.sample_dim);
+        this.hslCache = new Array(count).fill(0).map(() => [0,0,0]);
+        for (let i = 0, x = 0; i < this.hslCache.length; i++, x += this.sample_dim) {
+            this.calcHSL(x, this.hslCache[i]);
         }
         this.ctx.beginPath();
         // let intensity: number;
@@ -176,36 +171,6 @@ export class MetaballAnimation {
         return Math.floor((intensity) * 1000);
     }
 
-    // private lastFrameTime: number = performance.now();
-    // private fps: number = 60;
-
-    // calculateFPS(): number {
-    //     const now = performance.now();
-    //     const delta = now - this.lastFrameTime;
-    //     this.lastFrameTime = now;
-    //     this.fps = 1000 / delta; // Calculate FPS
-    //     return this.fps;
-    // }
-
-    // adjustSampleResolution(): void {
-    //     const targetFPS = 60; // Target FPS for smooth animation
-    //     const fps = this.calculateFPS();
-    
-    //     // Calculate adjustment factor based on FPS difference
-    //     const adjustmentFactor = Math.max(1, Math.abs(targetFPS - fps) / 10);
-    
-    //     if (fps < targetFPS - 10) {
-    //         // Reduce resolution (increase sample_dim)
-    //         this.sample_dim = Math.min(this.sample_dim * adjustmentFactor, this.canvas.width / 10);
-    //     } else if (fps > targetFPS + 10) {
-    //         // Increase resolution (decrease sample_dim)
-    //         this.sample_dim = Math.max(this.sample_dim / adjustmentFactor, 1);
-    //     }
-    
-    //     // Log the adjustment for debugging
-    //     console.log(`Adjusted sample_dim to: ${this.sample_dim} based on FPS: ${fps}`);
-    // }
-
     updateCircPos(circ:Circ) {
         // Calculates the new position of a given circle
         // assumes totally elastic collisions and equivalent masses between circles and border
@@ -232,26 +197,4 @@ export class MetaballAnimation {
             circ.y_comp *= -1;
         }
     }
-
-    createDebuggingNet(m:number) {
-        let width = this.canvas.width;
-        let height = this.canvas.height;
-        // m is number of rows, n is number of columns
-            let row_w = Math.floor(width/m);
-            // let col_w = parseInt(true_vw / n);
-            let xpos = 0;
-            let ypos = 0;
-            this.ctx.beginPath();
-            for (let i = 0; i < m; i++) {
-                xpos += row_w;
-                this.ctx.moveTo(xpos, 0);
-                this.ctx.lineTo(xpos, height);
-            }
-            for (let i = 0; i < Math.floor(height/row_w); i++) {
-                ypos += row_w;
-                this.ctx.moveTo(0, ypos);
-                this.ctx.lineTo(width, ypos);
-            }
-            this.ctx.stroke();
-        }
 }
