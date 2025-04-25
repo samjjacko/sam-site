@@ -100,13 +100,11 @@ function handleResize() {
     if (isMobileDevice()) {
       // Ensure the animation remains stopped on mobile
       if (toggle) { // will never be true if isMobileDevice returns true consistently
-        console.log("Disabling animation");
         toggleAnimation();
       }
     } else {
       // Start the animation if needed on desktop
       if (!toggle) {
-        console.log("animation start")
         toggleAnimation(); 
       }
     }
@@ -116,9 +114,9 @@ function handleResize() {
     // anim1.canvas.width = rect.width;
     // anim1.canvas.height = rect.height;
 
-    // // Recalculate sample dimensions
-    // anim1.sample_dim = Math.floor(anim1.canvas.width * anim1.canvas.height / anim1.sample_res);
-  
+    // Recalculate sample dimensions
+    anim1.sample_dim = Math.floor(anim1.canvas.width * anim1.canvas.height / anim1.sample_res);
+    if (anim1.sample_dim == 0) anim1.sample_dim = 1;
 }
 
 if (!isMobileDevice()) {
